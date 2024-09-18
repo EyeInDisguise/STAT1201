@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Logistic Regression and Logistic Curves}
+
+Logistic regression is used to model the probability of a binary outcome based on one or more predictor variables. In the case of pine trees, we are interested in estimating the probability that a tree will produce cones based on its age.
+
+\subsection{Estimating Probability}
+
+Given a logistic regression model:
+
+\[
+\log \left( \frac{P(\text{Coning})}{1 - P(\text{Coning})} \right) = \beta_0 + \beta_1 \text{Age}
+\]
+
+where \( \beta_0 \) and \( \beta_1 \) are the coefficients estimated from the data, and \( P(\text{Coning}) \) is the probability of the tree producing cones. Rearranging to find \( P(\text{Coning}) \):
+
+\[
+P(\text{Coning}) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 \text{Age})}}
+\]
+
+\textbf{Example:} Given \(\beta_0 = -2.9713\) and \(\beta_1 = 0.1961\), to find the probability of a 17-year-old tree producing cones:
+
+\[
+P(\text{Coning}) = \frac{1}{1 + e^{-(-2.9713 + 0.1961 \cdot 17)}}
+\]
+
+Calculate the exponent:
+
+\[
+\text{Exponent} = -(-2.9713 + 0.1961 \cdot 17) = 2.9713 - 3.3257 = -0.3544
+\]
+
+Thus:
+
+\[
+P(\text{Coning}) = \frac{1}{1 + e^{0.3544}} \approx \frac{1}{1 + 1.426} \approx \frac{1}{2.426} \approx 0.412
+\]
+
+The estimated probability of coning for a 17-year-old tree is approximately \textbf{0.412}.
+
+\subsection{Interpreting the Logistic Slope}
+
+The slope \( \beta_1 \) in the logistic regression model represents the change in the log odds of the outcome for a one-unit increase in the predictor variable. For a 1-year increase in age, the odds ratio is:
+
+\[
+\text{Odds Ratio} = e^{\beta_1}
+\]
+
+Given \(\beta_1 = 0.1961\):
+
+\[
+\text{Odds Ratio} = e^{0.1961} \approx 1.216
+\]
+
+This means that a tree that is 11 years old is approximately \textbf{1.22} times as likely to be producing cones as a tree that is 10 years old.
+
+\subsection{Increasing Odds}
+
+To find the odds ratio of coning for 12-year-old trees compared to 10-year-old trees:
+
+\[
+\text{Odds Ratio} = e^{\beta_1 \cdot (12 - 10)} = e^{0.1961 \cdot 2} = e^{0.3922} \approx 1.481
+\]
+
+The odds ratio of coning for 12-year-old trees compared to 10-year-old trees is approximately \textbf{1.48}.
+
+\end{document}

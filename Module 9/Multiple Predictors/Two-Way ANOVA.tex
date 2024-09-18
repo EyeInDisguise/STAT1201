@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Summary of Two-Way ANOVA}
+\author{}
+\date{}
+\maketitle
+
+\section{One-Way ANOVA}
+
+In a one-way ANOVA, we test whether there are significant differences in the mean of a response variable across multiple groups. The null hypothesis \( H_0 \) states that all group means are equal:
+
+\[
+H_0: \mu_1 = \mu_2 = \cdots = \mu_k
+\]
+
+Where \( k \) is the number of groups. The alternative hypothesis \( H_1 \) states that at least one group mean is different.
+
+\subsection{Hypothesis Testing}
+
+The strength of evidence against \( H_0 \) is determined by the p-value obtained from the ANOVA test:
+\begin{itemize}
+    \item **Strong evidence**: p-value < 0.01
+    \item **Moderate evidence**: 0.01 < p-value < 0.05
+    \item **Weak evidence**: 0.05 < p-value < 0.1
+    \item **No evidence**: p-value > 0.1
+\end{itemize}
+
+\subsection{R-squared for One-Way ANOVA}
+
+The \( R^2 \) value, or the proportion of variance explained by the model, is calculated as:
+
+\[
+R^2 = \frac{\text{Sum of Squares Between Groups}}{\text{Total Sum of Squares}}
+\]
+
+\section{Two-Way ANOVA}
+
+Two-way ANOVA extends the one-way ANOVA to assess the impact of two factors on a response variable and their interaction.
+
+\subsection{ANOVA Table}
+
+Given:
+\begin{itemize}
+    \item Total Sum of Squares (SS): 357,387 lbs\(^2\)
+    \item Phosphate Sum of Squares (SS): 164,872 lbs
+    \item Nitrogen Sum of Squares (SS): 77,191 lbs
+    \item Residual Sum of Squares (SS): 109,207 lbs
+\end{itemize}
+
+Degrees of Freedom (df):
+\begin{itemize}
+    \item Total df: \( N - 1 \)
+    \item Phosphate df: \( \text{Number of levels of phosphate} - 1 \)
+    \item Nitrogen df: \( \text{Number of levels of nitrogen} - 1 \)
+    \item Residual df: Total df - Phosphate df - Nitrogen df - Interaction df
+\end{itemize}
+
+Mean Squares (MS):
+\[
+\text{MS}_{\text{Phosphate}} = \frac{\text{SS}_{\text{Phosphate}}}{\text{df}_{\text{Phosphate}}}
+\]
+\[
+\text{MS}_{\text{Nitrogen}} = \frac{\text{SS}_{\text{Nitrogen}}}{\text{df}_{\text{Nitrogen}}}
+\]
+\[
+\text{MS}_{\text{Residual}} = \frac{\text{SS}_{\text{Residual}}}{\text{df}_{\text{Residual}}}
+\]
+
+F-statistics:
+\[
+F_{\text{Phosphate}} = \frac{\text{MS}_{\text{Phosphate}}}{\text{MS}_{\text{Residual}}}
+\]
+\[
+F_{\text{Nitrogen}} = \frac{\text{MS}_{\text{Nitrogen}}}{\text{MS}_{\text{Residual}}}
+\]
+\[
+F_{\text{Interaction}} = \frac{\text{MS}_{\text{Interaction}}}{\text{MS}_{\text{Residual}}}
+\]
+
+P-values are determined from these F-statistics.
+
+\subsection{Interaction Effect}
+
+To test for an interaction effect between phosphate and nitrogen:
+\begin{itemize}
+    \item **Strong evidence of interaction**: p-value < 0.01
+    \item **Moderate evidence**: 0.01 < p-value < 0.05
+    \item **Weak evidence**: 0.05 < p-value < 0.1
+    \item **No evidence**: p-value > 0.1
+\end{itemize}
+
+\subsection{Two-Way R-squared}
+
+The \( R^2 \) value for the two-way ANOVA is calculated as:
+
+\[
+R^2 = \frac{\text{Sum of Squares Explained by Model}}{\text{Total Sum of Squares}}
+\]
+
+where the “Sum of Squares Explained by Model” includes SS for Phosphate, Nitrogen, and Interaction.
+
+\end{document}

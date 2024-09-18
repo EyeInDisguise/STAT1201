@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Logistic Regression}
+
+Logistic regression is used to model the probability of a binary outcome based on one or more predictor variables. It estimates the odds of an event occurring by applying the logistic function to a linear combination of the predictor variables.
+
+\subsection{Estimating Odds}
+
+In logistic regression, the model for the relationship between a predictor variable \( x \) and the binary outcome \( Y \) is given by:
+
+\[
+\log \left( \frac{P(Y = 1)}{1 - P(Y = 1)} \right) = \beta_0 + \beta_1 x
+\]
+
+where:
+\begin{itemize}
+    \item \( \frac{P(Y = 1)}{1 - P(Y = 1)} \) represents the odds of the outcome occurring.
+    \item \( \beta_0 \) is the intercept.
+    \item \( \beta_1 \) is the coefficient for the predictor variable \( x \).
+\end{itemize}
+
+The probability \( P(Y = 1) \) can be calculated using the logistic function:
+
+\[
+P(Y = 1) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x)}}
+\]
+
+To find the estimated odds for a given value of \( x \), use:
+
+\[
+\text{Odds} = e^{\beta_0 + \beta_1 x}
+\]
+
+\subsection{Example Calculation}
+
+For a given logistic regression model, suppose the relationship between smoking status and the number of life-changing events is modeled as:
+
+\[
+\log \left( \frac{P(\text{Smoker})}{1 - P(\text{Smoker})} \right) = \beta_0 + \beta_1 (\text{LifeChangingEvents})
+\]
+
+To estimate the odds of being a smoker for someone with 9 life-changing events, substitute \( x = 9 \) into the formula:
+
+\[
+\text{Odds} = e^{\beta_0 + \beta_1 \cdot 9}
+\]
+
+You would need the values of \( \beta_0 \) and \( \beta_1 \) to perform this calculation. The resulting odds can then be compared with the given options.
+
+\subsection{Equal Chance for the Response}
+
+In logistic regression, the estimated probability of the response being 1 (i.e., the event occurring) is 0.5 (equal chance) when the linear combination of the predictors is zero. Therefore, the value of \( x \) that gives an equal chance for the response can be found by solving:
+
+\[
+\beta_0 + \beta_1 x = 0
+\]
+
+Thus, the value of \( x \) is:
+
+\[
+x = -\frac{\beta_0}{\beta_1}
+\]
+
+This value of \( x \) ensures that the odds ratio is 1, and thus the probability of the event occurring is 0.5.
+
+\end{document}

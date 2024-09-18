@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Summary of Multiple Regression Analysis}
+\author{}
+\date{}
+\maketitle
+
+\section{Multiple Regression: Holding Breath}
+
+Multiple regression allows us to study the effects of multiple explanatory variables on a response variable. An example from Module 8 examined the relationship between breath-holding time and height. Initially, the analysis might suggest a strong association between these variables. However, this association can be misleading if we do not account for other factors, such as sex.
+
+\subsection{Initial Analysis}
+
+The linear regression model analyzing breath-holding time with height gave the following results:
+\begin{verbatim}
+> breath = read.csv("Breath.csv")
+> mod1 = lm(BreathHeld ~ Height, data=breath)
+> summary(mod1)
+\end{verbatim}
+\begin{verbatim}
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)   
+(Intercept) -181.7405    59.2889  -3.065  0.00667 **
+Height         1.2774     0.3388   3.770  0.00140 **
+\end{verbatim}
+
+This model suggested a strong association between breath-holding time and height with an \( R^2 \) value of 0.4412.
+
+\subsection{Inclusion of Categorical Variables}
+
+The scatterplot analysis showed different relationships between breath-holding time and height for males and females, suggesting an interaction effect. To account for this, we include a dummy variable for sex and examine the interaction between sex and height:
+\[
+\text{BreathHeld} = \beta_0 + \beta_1 \text{Height} + \beta_2 \text{SexMale} + \beta_3 (\text{Height} \times \text{SexMale}) + \epsilon
+\]
+
+Fitting this model in R:
+\begin{verbatim}
+> mod2 = lm(BreathHeld ~ Sex*Height, data=breath)
+> summary(mod2)
+\end{verbatim}
+\begin{verbatim}
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)
+(Intercept)     84.3331    86.8828   0.971    0.346
+SexMale        -41.7486   125.0206  -0.334    0.743
+Height          -0.3468     0.5178  -0.670    0.513
+SexMale:Height   0.4249     0.7158   0.594    0.561
+\end{verbatim}
+
+This analysis provided an \( R^2 \) value of 0.7847, but none of the variables were significant.
+
+\subsection{Simplified Model}
+
+Dropping the interaction term:
+\[
+\text{BreathHeld} = \beta_0 + \beta_1 \text{Height} + \beta_2 \text{SexMale} + \epsilon
+\]
+
+Fitting this simplified model in R:
+\begin{verbatim}
+> mod3 = lm(BreathHeld ~ Sex+Height, data=breath)
+> summary(mod3)
+\end{verbatim}
+\begin{verbatim}
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  47.0452    58.8693   0.799    0.435    
+SexMale      32.3662     6.3267   5.116 8.61e-05 ***
+Height       -0.1244     0.3506  -0.355    0.727    
+
+Multiple R-squared:   0.78,	Adjusted R-squared:  0.7541 
+\end{verbatim}
+
+The simplified model shows strong evidence of a sex difference, but no evidence of a relationship between breath-holding time and height after accounting for sex differences. The \( R^2 \) value is 0.7800.
+
+\section{Juicing Oranges}
+
+To examine whether the variability in orange weight affects the results of the warming treatment, we use multiple regression including both orange weight and warming treatment:
+\[
+\text{JuiceAmount} = \beta_0 + \beta_1 \text{Weight} + \beta_2 \text{Treatment} + \epsilon
+\]
+
+We need to determine if there's evidence of an association with weight and warming treatment based on the results of this multiple regression.
+
+\textbf{Possible outcomes}:
+\begin{itemize}
+    \item There is no evidence of an association with weight (\( p > 0.1 \)) and no evidence of a warming effect (\( p > 0.1 \)).
+    \item There is no evidence of an association with weight (\( p > 0.1 \)) but strong evidence of a warming effect (\( p < 0.01 \)).
+    \item There is weak evidence of an association with weight (\( 0.05 < p < 0.1 \)) but still no evidence of a warming effect (\( p > 0.1 \)).
+    \item There is strong evidence of an association with weight (\( p < 0.01 \)) but still no evidence of a warming effect (\( p > 0.1 \)).
+\end{itemize}
+
+\end{document}

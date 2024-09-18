@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Summary of Dummy Variables and Regression Analysis}
+\author{}
+\date{}
+\maketitle
+
+\section{Dummy Variables}
+
+Dummy variables, also known as indicator variables, are used to represent categorical variables in regression analysis. They transform categorical variables into a form that can be used with least-squares regression. 
+
+For example, consider a categorical variable such as sex, which can be represented by the dummy variable \( D \):
+\[
+D = 
+\begin{cases} 
+1 & \text{if male} \\
+0 & \text{if female}
+\end{cases}
+\]
+
+The regression model can then be expressed as:
+\[
+Y = \beta_0 + \beta_1 D + \epsilon
+\]
+where:
+\begin{itemize}
+    \item \( Y \) is the dependent variable (e.g., height).
+    \item \( \beta_0 \) is the intercept.
+    \item \( \beta_1 \) is the coefficient for the dummy variable.
+    \item \( \epsilon \) is the error term.
+\end{itemize}
+
+For example, if we want to model sex differences in height using the `lm()` function in R:
+\begin{verbatim}
+survey = read.csv("data/Survey.csv")
+summary(lm(Height ~ Sex, data=survey))
+\end{verbatim}
+The output might include:
+\begin{verbatim}
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  167.423      1.210 138.355  < 2e-16 ***
+SexMale        9.636      1.608   5.994 1.39e-07 ***
+\end{verbatim}
+
+This results in the regression equation:
+\[
+\text{Height} = 167.423 + 9.636 \cdot D
+\]
+where \( D \) is the dummy variable for sex.
+
+The coefficient \( 9.636 \) represents the average difference in height due to being male. This is the same as the difference between mean heights of males and females, as obtained in a pooled \( t \)-test.
+
+\section{Juicing Oranges}
+
+To test the effect of warming oranges on juice yield using a dummy variable, consider a regression model with the following R code:
+\begin{verbatim}
+oj = read.csv("Oranges.csv")
+summary(lm(Juice ~ Treatment, data=oj))
+\end{verbatim}
+
+The output might be:
+\begin{verbatim}
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    102.333      3.333  30.700   <2e-16 ***
+TreatmentNone    6.333      4.714   1.344     0.19     
+\end{verbatim}
+
+The estimated mean juice amount for oranges that were microwaved is:
+\[
+\text{Mean Juice} = \text{Intercept} + \text{Coefficient of TreatmentNone}
+\]
+Given that the coefficient for `TreatmentNone` is \( 6.333 \) mL, and the intercept is \( 102.333 \) mL, the estimated mean juice amount for microwaved oranges is:
+\[
+\text{Mean Juice} = 102.333 \, \text{mL} + 6.333 \, \text{mL} = 108.666 \, \text{mL}
+\]
+
+Thus, the estimated mean juice amount for oranges microwaved prior to juicing is \( 108.666 \) mL.
+
+\end{document}

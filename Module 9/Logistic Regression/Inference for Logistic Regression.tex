@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Inferences for Logistic Regression}
+
+In logistic regression, we assess the effect of predictor variables on the probability of a binary outcome by analyzing the log odds of the outcome.
+
+\subsection{Testing the Hypothesis}
+
+To determine if there is evidence that the rate of pine tree coning increases with age, we test the null hypothesis \( H_0: \beta_1 = 0 \) (no effect of age on coning). The alternative hypothesis is \( H_1: \beta_1 \neq 0 \) (age does affect coning).
+
+Given:
+\[
+\hat{\beta}_1 = 0.19611
+\]
+\[
+\text{Standard Error} = 0.07708
+\]
+
+The test statistic \( z \) is calculated as:
+\[
+z = \frac{\hat{\beta}_1}{\text{Standard Error}} = \frac{0.19611}{0.07708} \approx 2.544
+\]
+
+The one-sided p-value can be obtained using the normal distribution:
+\[
+\text{P-value} = \text{pnorm}(-2.544) \approx 0.0055
+\]
+
+Since the p-value is very small, we reject the null hypothesis. There is strong evidence that the rate of pine tree coning increases with age.
+
+\subsection{Television and Criminal Convictions}
+
+For the study on television watching and criminal convictions, we have the following logistic regression output:
+\[
+\text{Estimate for Television} = 0.4383
+\]
+\[
+\text{Standard Error} = 0.1012
+\]
+
+\subsubsection{Hypothesis Test}
+
+To determine the evidence of a positive association, calculate the z-value:
+\[
+z = \frac{0.4383}{0.1012} \approx 4.33
+\]
+
+Using the normal distribution:
+\[
+\text{P-value} = 1 - \text{pnorm}(4.33) \approx 0
+\]
+
+Since the p-value is very small, we have strong evidence of a positive association between the probability of a criminal conviction by age 26 and the average hours of television watched as a child.
+
+\subsubsection{Confidence Intervals}
+
+To compute a 95\% confidence interval for the increase in odds for a one-hour increase in television viewing:
+
+\[
+\text{Standard Error} = 0.1012
+\]
+\[
+\text{Critical value} = 1.96 \text{ (for 95\% CI)}
+\]
+
+The confidence interval for \(\beta_1\) is:
+\[
+\text{CI} = \hat{\beta}_1 \pm (1.96 \times \text{Standard Error})
+\]
+\[
+\text{CI} = 0.4383 \pm (1.96 \times 0.1012)
+\]
+\[
+\text{CI} = 0.4383 \pm 0.1984
+\]
+\[
+\text{Lower Bound} = 0.4383 - 0.1984 \approx 0.2399
+\]
+\[
+\text{Upper Bound} = 0.4383 + 0.1984 \approx 0.6367
+\]
+
+Thus, the 95\% confidence interval for the increase in odds is \([0.2399, 0.6367]\).
+
+\end{document}

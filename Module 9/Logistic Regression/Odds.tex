@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Odds}
+
+Odds are frequently used instead of probabilities when modeling the chance of a certain response. Understanding how to convert between probabilities and odds is crucial for various statistical applications.
+
+\subsection{Probability to Odds}
+
+The odds of an event occurring can be calculated from its probability using the following formula:
+
+\[
+\text{Odds} = \frac{p}{1 - p}
+\]
+
+where \( p \) is the probability of the event.
+
+\subsection{Odds to Probability}
+
+To convert odds to probability, use the formula:
+
+\[
+p = \frac{\text{Odds}}{1 + \text{Odds}}
+\]
+
+where \(\text{Odds}\) represents the odds of the event.
+
+\subsection{Examples}
+
+\begin{enumerate}
+    \item \textbf{Probability to Odds}
+    
+    Given: Probability \( p = 0.32 \)
+
+    \[
+    \text{Odds} = \frac{0.32}{1 - 0.32} = \frac{0.32}{0.68} \approx 0.471
+    \]
+
+    The odds of the event occurring are approximately \textbf{0.471}.
+
+    \item \textbf{Odds to Probability}
+    
+    Given: Odds = 1.78
+
+    \[
+    p = \frac{1.78}{1 + 1.78} = \frac{1.78}{2.78} \approx 0.64
+    \]
+
+    The probability of the event occurring is approximately \textbf{0.64}.
+\end{enumerate}
+
+\end{document}

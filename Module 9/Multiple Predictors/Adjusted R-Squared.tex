@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Adjusted R-Squared and Model Parameters}
+\author{}
+\date{}
+\maketitle
+
+\section{R-Squared and Model Parameters}
+
+In regression analysis, R-squared (\(R^2\)) and Adjusted R-squared (\(\bar{R}^2\)) are used to evaluate the goodness of fit of a model.
+
+\subsection{R-Squared (\(R^2\))}
+
+The R-squared value indicates the proportion of the variability in the response variable that is explained by the explanatory variables in the model. It is calculated as:
+
+\[
+R^2 = \frac{\text{Sum of Squares for Regression}}{\text{Total Sum of Squares}} = 1 - \frac{\text{Sum of Squares for Residuals}}{\text{Total Sum of Squares}}
+\]
+
+For example, consider the ANOVA table for the relationship between breath holding and height:
+
+\begin{verbatim}
+> anova(mod1)
+Analysis of Variance Table
+
+Response: BreathHeld
+          Df Sum Sq Mean Sq F value   Pr(>F)   
+Height     1 2656.1 2656.13  14.214 0.001402 **
+Residuals 18 3363.7  186.87 
+\end{verbatim}
+
+The R-squared value can be computed from these sums of squares. For the model where both sex and height are included:
+
+\begin{verbatim}
+> anova(mod3)
+Analysis of Variance Table
+
+Response: BreathHeld
+          Df Sum Sq Mean Sq F value    Pr(>F)    
+Sex        1 4685.5  4685.5 60.1362 5.562e-07 ***
+Height     1    9.8     9.8  0.1259    0.7271    
+Residuals 17 1324.5    77.9     
+\end{verbatim}
+
+The R-squared value for this model is calculated as:
+
+\[
+R^2 = \frac{\text{Sum of Squares for Sex + Height}}{\text{Total Sum of Squares}}
+\]
+
+For the model with only sex as an explanatory variable:
+
+\begin{verbatim}
+> mod4 = lm(BreathHeld ~ Sex, data=breath)
+> summary(mod4)
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   26.181      2.723   9.616 1.63e-08 ***
+SexMale       30.612      3.850   7.950 2.68e-07 ***
+
+Multiple R-squared:  0.7783, Adjusted R-squared:  0.766 
+\end{verbatim}
+
+\subsection{Adjusted R-Squared (\(\bar{R}^2\))}
+
+The Adjusted R-squared accounts for the number of predictor variables in the model, providing a more accurate measure of goodness of fit when comparing models with different numbers of predictors. It is calculated as:
+
+\[
+\bar{R}^2 = 1 - \left( \frac{(1 - R^2) \times (n - 1)}{n - p - 1} \right)
+\]
+
+where \(n\) is the number of observations and \(p\) is the number of predictor variables.
+
+For the model with both sex and height:
+
+\[
+\bar{R}^2 = 1 - \left( \frac{(1 - 0.7847) \times (18 - 2)}{18 - 2 - 1} \right) = 0.7541
+\]
+
+For the model with only sex:
+
+\[
+\bar{R}^2 = 1 - \left( \frac{(1 - 0.7783) \times (18 - 1)}{18 - 1 - 1} \right) = 0.766
+\]
+
+\subsection{Comparison of Models}
+
+The Adjusted R-squared for the model based only on sex is:
+
+\[
+\bar{R}^2 = 0.766
+\]
+
+while for the model with sex and height:
+
+\[
+\bar{R}^2 = 0.7541
+\]
+
+This indicates that the simpler model (based on sex alone) is better according to the Adjusted R-squared value.
+
+\section{Conclusion}
+
+The Adjusted R-squared value adjusts the R-squared value based on the number of predictors in the model. It provides a more accurate measure when comparing models with different numbers of predictors and helps in assessing whether adding more predictors improves the model's fit or not.
+
+\end{document}
