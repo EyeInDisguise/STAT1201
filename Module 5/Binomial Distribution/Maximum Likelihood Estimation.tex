@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Maximum Likelihood Estimation (MLE)}
+\author{}
+\date{}
+\maketitle
+
+\section{Introduction}
+In statistics, Maximum Likelihood Estimation (MLE) is a method for estimating the parameters of a statistical model. The idea behind MLE is to find the parameter values that maximize the likelihood function, which measures how likely it is to observe the given sample data under different parameter values.
+
+\section{Sample Mean and Proportion}
+In Module 2, we noted that the sample mean minimizes the total squared deviations between the observed values and the estimate. Similarly, the sample proportion is the mean of all the 0 or 1 Bernoulli trials. Estimating parameters by minimizing squared deviations is a common approach in statistics, including fitting straight lines to scatterplots.
+
+However, minimizing squared deviations is not always feasible for parameter estimation. In such cases, MLE provides an alternative approach.
+
+\section{Maximum Likelihood Estimation}
+\subsection{Concept}
+Maximum Likelihood Estimation involves the following steps:
+\begin{itemize}
+    \item \textbf{Define the Likelihood Function:} For a given statistical model with parameters \(\theta\), the likelihood function \(L(\theta)\) represents the probability of observing the given sample data as a function of \(\theta\).
+    \[
+    L(\theta) = P(X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n \mid \theta)
+    \]
+    \item \textbf{Maximize the Likelihood Function:} Find the parameter values \(\hat{\theta}\) that maximize the likelihood function:
+    \[
+    \hat{\theta} = \arg \max_{\theta} L(\theta)
+    \]
+\end{itemize}
+
+\subsection{Application to Proportions}
+For example, if we are estimating the proportion \(p\) of a population with a certain characteristic based on a sample of \(n\) Bernoulli trials, the likelihood function is:
+\[
+L(p) = p^k (1 - p)^{n - k}
+\]
+where \(k\) is the number of successes in the sample.
+
+The log-likelihood function is often used because it simplifies the differentiation process:
+\[
+\ell(p) = k \log(p) + (n - k) \log(1 - p)
+\]
+
+To find the MLE for \(p\), we differentiate the log-likelihood function with respect to \(p\) and set it to zero:
+\[
+\frac{d \ell(p)}{dp} = \frac{k}{p} - \frac{n - k}{1 - p} = 0
+\]
+Solving for \(p\) yields:
+\[
+\hat{p} = \frac{k}{n}
+\]
+
+Thus, the MLE of the proportion \(p\) is the sample proportion, which is consistent with our earlier result.
+
+\section{Conclusion}
+MLE is a versatile method that provides estimates by maximizing the likelihood of observing the given data under the model. While minimizing squared deviations is common for certain models, MLE offers a robust alternative, especially when squared deviations are not applicable.
+
+\end{document}

@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Module 5: Binomial Distribution and Applications}
+\author{}
+\date{}
+\maketitle
+
+\section{Introduction}
+In this module, we explore the Binomial distribution and its applications. We will model discrete random variables with the Binomial distribution, and understand its properties in different scenarios.
+
+\section{Binomial Distribution}
+A Binomial distribution describes the number of successes in a fixed number of independent Bernoulli trials, each with the same probability of success. If \( X \) is the count of successes in \( n \) trials with success probability \( p \), then \( X \) follows a Binomial distribution, denoted as \( \text{Binomial}(n, p) \).
+
+\subsection{Probability Mass Function}
+The probability mass function of a Binomial random variable \( X \) is given by:
+\[
+P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}
+\]
+where:
+\begin{itemize}
+    \item \( n \) is the number of trials,
+    \item \( k \) is the number of successes,
+    \item \( p \) is the probability of success on each trial,
+    \item \( \binom{n}{k} \) is the Binomial coefficient, calculated as \( \frac{n!}{k!(n-k)!} \).
+\end{itemize}
+
+\section{Blood Types Example}
+Suppose in the Australian population, 81\% of people are Rh-positive, and we take a random sample of 3 individuals. We define \( X \) as the number of Rh-positive individuals in the sample.
+
+\subsection{Probability Calculations}
+\begin{itemize}
+    \item Probability of exactly 2 Rh-positive individuals:
+    \[
+    P(X = 2) = \binom{3}{2} (0.81)^2 (1-0.81)^{3-2}
+    \]
+    \[
+    P(X = 2) = 3 \times (0.81)^2 \times (0.19) \approx 0.3741
+    \]
+\end{itemize}
+
+\section{Application Problems}
+\subsection{Probability of At Least Half of the Sample}
+Suppose 30\% of students have tried marijuana. We want to find the probability that at least half in a sample of 10 and 20 students have tried marijuana.
+
+\begin{itemize}
+    \item For 10 students:
+    \[
+    P(X \geq 5) = 1 - P(X \leq 4)
+    \]
+    \[
+    P(X \geq 5) = 1 - \text{pbinom}(4, 10, 0.30)
+    \]
+    
+    \item For 20 students:
+    \[
+    P(X \geq 10) = 1 - P(X \leq 9)
+    \]
+    \[
+    P(X \geq 10) = 1 - \text{pbinom}(9, 20, 0.30)
+    \]
+\end{itemize}
+
+\section{Finite Populations}
+When sampling from a finite population, if the population size is much larger than the sample size (e.g., at least ten times larger), using the Binomial distribution is generally appropriate despite the slight dependence between trials.
+
+\end{document}

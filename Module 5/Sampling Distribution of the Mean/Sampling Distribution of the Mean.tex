@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\title{Sampling Distribution of the Mean}
+\author{}
+\date{}
+\maketitle
+
+\section{Introduction}
+The sampling distribution of the sample mean is a fundamental concept in statistics. It describes the distribution of sample means over repeated sampling from a population. The algebraic derivation of the properties of this distribution is straightforward yet crucial.
+
+\section{Sample Mean and Variance}
+Suppose we have \( n \) independent samples \( X_1, X_2, \ldots, X_n \) from a population with mean \( \mu \) and standard deviation \( \sigma \). We are interested in the sampling distribution of the sample mean \(\bar{X}\), where:
+
+\[
+\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i
+\]
+
+\subsection{Expected Value}
+The expected value of the sample mean \(\bar{X}\) can be calculated as follows:
+
+\[
+E(\bar{X}) = E \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right)
+\]
+
+Using the linearity of expectation:
+
+\[
+E(\bar{X}) = \frac{1}{n} \sum_{i=1}^{n} E(X_i) = \frac{1}{n} \sum_{i=1}^{n} \mu = \mu
+\]
+
+Thus, the expected value of the sample mean is equal to the population mean \( \mu \).
+
+\subsection{Variance}
+The variance of the sample mean \(\bar{X}\) is given by:
+
+\[
+\text{Var}(\bar{X}) = \text{Var} \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right)
+\]
+
+Since the \(X_i\) are independent, the variance of the sum is the sum of the variances:
+
+\[
+\text{Var} \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) = \frac{1}{n^2} \sum_{i=1}^{n} \text{Var}(X_i)
+\]
+
+Since each \(X_i\) has variance \(\sigma^2\):
+
+\[
+\text{Var} \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) = \frac{1}{n^2} \cdot n \cdot \sigma^2 = \frac{\sigma^2}{n}
+\]
+
+Thus, the variance of the sample mean is \(\frac{\sigma^2}{n}\).
+
+\section{Conclusion}
+The sample mean \(\bar{X}\) is an unbiased estimator of the population mean \( \mu \), and its variance decreases with the sample size \( n \). This reduction in variance is a key reason why larger samples provide more precise estimates of the population mean. 
+
+The fact that \(\sigma^2\) does not cancel in the denominator for the variance formula emphasizes the benefit of increasing sample size to improve the precision of estimates.
+
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\title{Normal Distributions and Standard Units}
+\author{}
+\date{}
+\maketitle
+
+\section{Introduction}
+Normal distributions are commonly used in statistics to model continuous random variables. A Normal distribution is characterized by its mean and standard deviation. Standardizing a Normal distribution can simplify calculations and comparisons.
+
+\section{Standard Units}
+Standardizing a Normal distribution involves transforming the data into standard units, where the mean is 0 and the standard deviation is 1. This is done using the \( z \)-score.
+
+\subsection{Standard Score (z-score)}
+The \( z \)-score of a value \( x \) is calculated as:
+\[
+z = \frac{x - \mu}{\sigma}
+\]
+where \( \mu \) is the mean and \( \sigma \) is the standard deviation of the Normal distribution. The \( z \)-score measures how many standard deviations \( x \) is from the mean.
+
+\subsection{Example}
+Suppose female heights are Normally distributed with a mean of 167 cm and a standard deviation of 6.6 cm. For a female height of 180 cm:
+\[
+z = \frac{180 - 167}{6.6} \approx 1.97
+\]
+This means that a height of 180 cm is 1.97 standard deviations above the mean.
+
+\subsection{Using Standard Units}
+To find the probability associated with a \( z \)-score, use the cumulative distribution function \( \Phi(z) \) which gives the probability that a standard Normal random variable is less than or equal to \( z \). In R, this is calculated using the function \texttt{pnorm}.
+
+For a \( z \)-score of 1.97:
+\[
+P(Z \geq 1.97) = 1 - \Phi(1.97)
+\]
+If \texttt{pnorm(-1.97)} gives 0.0244, then 2.4\% of females are taller than 180 cm.
+
+\section{Comparing Distributions}
+Standard units allow for comparisons across different distributions. For example, if male heights are Normally distributed with a mean of 179 cm and a standard deviation of 7.6 cm, then:
+\[
+z = \frac{194 - 179}{7.6} \approx 1.97
+\]
+Despite the different means and standard deviations, both heights correspond to 1.97 standard deviations above their respective means.
+
+\section{Normal Quantiles}
+To find quantiles of a Normal distribution, use the quantile function \( Q(p) \) where \( p \) is the desired percentile. In R, this is calculated using the function \texttt{qnorm}.
+
+\subsection{Example}
+To find the lowest copper level that places a blood test in the highest 1\%, use the mean \( \mu = 18.5 \) mol/L and standard deviation \( \sigma = 3.827 \) mol/L. The \( z \)-score corresponding to the 99\% percentile is found using:
+\[
+Q(0.99) = \texttt{qnorm}(0.99)
+\]
+Multiply this \( z \)-score by the standard deviation and add the mean to get the desired copper level.
+
+\end{document}

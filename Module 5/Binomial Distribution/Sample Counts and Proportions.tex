@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Sample Counts and Proportions Expected Values}
+\author{}
+\date{}
+\maketitle
+
+\section{Sample Count}
+Let \( X \) be the count of successes from \( n \) independent Bernoulli trials, each with success probability \( p \). To find the expected value and standard deviation of \( X \), we define new random variables \( X_i \) for each of the Bernoulli trials:
+
+\[
+X_i =
+\begin{cases}
+1 & \text{if success} \\
+0 & \text{if failure}
+\end{cases}
+\]
+
+The probability function for each \( X_i \) is given by:
+\[
+P(X_i = 1) = p, \quad P(X_i = 0) = 1 - p
+\]
+
+\subsection{Expected Value and Standard Deviation}
+The expected value of \( X_i \) is:
+\[
+E[X_i] = 1 \cdot p + 0 \cdot (1 - p) = p
+\]
+
+The variance of \( X_i \) is:
+\[
+\text{Var}(X_i) = E[X_i^2] - (E[X_i])^2 = p - p^2 = p(1 - p)
+\]
+
+The count of successes \( X \) is:
+\[
+X = \sum_{i=1}^n X_i
+\]
+
+The expected value of \( X \) is:
+\[
+E[X] = E\left[\sum_{i=1}^n X_i\right] = \sum_{i=1}^n E[X_i] = np
+\]
+
+The variance of \( X \) is:
+\[
+\text{Var}(X) = \text{Var}\left(\sum_{i=1}^n X_i\right) = \sum_{i=1}^n \text{Var}(X_i) = np(1 - p)
+\]
+
+The standard deviation of \( X \) is:
+\[
+\sigma_X = \sqrt{\text{Var}(X)} = \sqrt{np(1 - p)}
+\]
+
+\section{Sample Proportion}
+The sample proportion \( \hat{p} \) is defined as:
+\[
+\hat{p} = \frac{X}{n}
+\]
+
+The expected value of \( \hat{p} \) is:
+\[
+E[\hat{p}] = E\left[\frac{X}{n}\right] = \frac{E[X]}{n} = p
+\]
+
+The variance of \( \hat{p} \) is:
+\[
+\text{Var}(\hat{p}) = \text{Var}\left(\frac{X}{n}\right) = \frac{\text{Var}(X)}{n^2} = \frac{p(1 - p)}{n}
+\]
+
+The standard deviation of \( \hat{p} \) is:
+\[
+\sigma_{\hat{p}} = \sqrt{\text{Var}(\hat{p})} = \sqrt{\frac{p(1 - p)}{n}}
+\]
+
+\section{Application Problems}
+
+\subsection{Expected Values and Standard Deviations}
+\textbf{Example: Barred Spiral Galaxies}
+
+Suppose a new survey of 42 spiral galaxies will be conducted, with the null hypothesis that 30\% of spiral galaxies are barred.
+
+\begin{itemize}
+    \item \textbf{Sample Count:}
+    \[
+    E[X] = np = 42 \times 0.3 = 12.6
+    \]
+    \[
+    \sigma_X = \sqrt{np(1 - p)} = \sqrt{42 \times 0.3 \times 0.7} \approx 3.4
+    \]
+
+    \item \textbf{Sample Proportion:}
+    \[
+    E[\hat{p}] = p = 0.3
+    \]
+    \[
+    \sigma_{\hat{p}} = \sqrt{\frac{p(1 - p)}{n}} = \sqrt{\frac{0.3 \times 0.7}{42}} \approx 0.085
+    \]
+\end{itemize}
+
+\subsection{Sample Size for Desired Standard Deviation}
+To find the smallest sample size \( n \) that ensures the standard deviation of the sample proportion is no more than 2\% (0.02), we use:
+\[
+\sigma_{\hat{p}} = \sqrt{\frac{p(1 - p)}{n}} \leq 0.02
+\]
+\[
+\frac{p(1 - p)}{n} \leq 0.02^2
+\]
+\[
+n \geq \frac{p(1 - p)}{0.02^2}
+\]
+For \( p = 0.3 \):
+\[
+n \geq \frac{0.3 \times 0.7}{0.02^2} \approx 525
+\]
+
+\end{document}
