@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Regression Analysis of Variance}
+
+\subsection{Analysis of Variance (ANOVA)}
+
+In regression analysis, ANOVA can be used to partition the total variability in the response variable into variability explained by the linear relationship and residual variability.
+
+Given the least-squares regression line:
+
+\[
+\hat{y} = \beta_0 + \beta_1 x
+\]
+
+we decompose the total sum of squares (SS\(_\text{Total}\)) into:
+
+\[
+\text{SS}_\text{Total} = \text{SS}_\text{Regression} + \text{SS}_\text{Residual}
+\]
+
+where:
+
+- \(\text{SS}_\text{Regression}\) measures variability explained by the model.
+- \(\text{SS}_\text{Residual}\) measures unexplained variability.
+
+For the oxytocin study, the ANOVA results are:
+
+\begin{verbatim}
+> oxy = read.csv("Oxytocin.csv")
+> summary(aov(Basal ~ Age, data=oxy))
+            Df Sum Sq Mean Sq F value  Pr(>F)   
+Age          1 0.7777  0.7777   8.004 0.00977 **
+Residuals   22 2.1377  0.0972
+\end{verbatim}
+
+The \( F \)-statistic is calculated as:
+
+\[
+F = \frac{\text{Mean Sq}_\text{Regression}}{\text{Mean Sq}_\text{Residual} }
+\]
+
+For this model:
+
+\[
+F = \frac{0.7777}{0.0972} = 8.004
+\]
+
+The \( p \)-value is \( 0.00977 \), which provides substantial evidence of an association between basal oxytocin levels and age.
+
+\subsection{R-Squared}
+
+The \( R^2 \) value represents the proportion of variance explained by the model. It is calculated as:
+
+\[
+R^2 = \frac{\text{SS}_\text{Regression}}{\text{SS}_\text{Total}}
+\]
+
+For the oxytocin study:
+
+\[
+R^2 = \frac{0.7777}{0.7777 + 2.1377} \approx 0.2668
+\]
+
+The \( R^2 \) value provides the proportion of total variability explained by the regression model. In this case, around 27% of the variability in basal oxytocin levels is explained by age.
+
+\subsection{Pearson Correlation Coefficient}
+
+The Pearson correlation coefficient \( r \) is related to \( R^2 \) by:
+
+\[
+R^2 = r^2
+\]
+
+Thus:
+
+\[
+r = \pm \sqrt{R^2}
+\]
+
+If \( R^2 = 0.391 \), then:
+
+\[
+r = \pm \sqrt{0.391} \approx \pm 0.625
+\]
+
+\subsection{p-Value Calculation}
+
+The p-value for the \( F \)-statistic can be calculated using the cumulative distribution function for the \( F \)-distribution in R:
+
+\[
+\text{p-value} = 1 - \text{pf}(8.004, 1, 22)
+\]
+
+\subsection{Holding Breath Study}
+
+To find the \( R^2 \) value for the relationship between time breath is held and height, we need to refer to the specific model output or provided options. Possible \( R^2 \) values could be:
+
+\begin{itemize}
+    \item 0.3388
+    \item 0.4412
+    \item 0.6642
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Confidence and Prediction Intervals}
+
+\subsection{Confidence Intervals}
+
+A confidence interval provides a range within which we are confident that a parameter, such as the mean response, lies. For a linear model, the 95\% confidence interval for the mean response at a specific value of the predictor \(x\) is calculated using the following steps:
+
+1. **Estimate the Mean Response:**
+
+   For a linear model \( y = \beta_0 + \beta_1 x \), the estimate of the mean response at \( x = x_0 \) is:
+
+   \[
+   \hat{y} = \hat{\beta_0} + \hat{\beta_1} x_0
+   \]
+
+   In R, this can be calculated using:
+
+   \begin{verbatim}
+   predict(model, newdata=data.frame(x=x_0), interval="confidence")
+   \end{verbatim}
+
+2. **Calculate the Confidence Interval:**
+
+   The 95\% confidence interval is given by:
+
+   \[
+   \hat{y} \pm t_{\alpha/2, \text{df}} \cdot \text{SE}(\hat{y})
+   \]
+
+   where \( t_{\alpha/2, \text{df}} \) is the critical value from the \( t \)-distribution, and \( \text{SE}(\hat{y}) \) is the standard error of the estimate.
+
+   For instance, if the R output is:
+
+   \begin{verbatim}
+   > predict(model, newdata=data.frame(Age=40), interval="confidence")
+       fit     lwr      upr
+   1 4.593114 4.46106 4.725168
+   \end{verbatim}
+
+   This indicates that we are 95\% confident that the mean basal oxytocin level for 40-year-old women is between 4.461 and 4.725 pg/mL.
+
+\subsection{Prediction Intervals}
+
+A prediction interval provides a range within which we are confident that a new individual observation will fall. It includes not only the uncertainty in the mean estimate but also the variability of individual responses.
+
+1. **Estimate the Prediction Interval:**
+
+   For predicting an individual response at \( x = x_0 \), the estimate is:
+
+   \[
+   \hat{y} = \hat{\beta_0} + \hat{\beta_1} x_0
+   \]
+
+   The prediction interval is given by:
+
+   \[
+   \hat{y} \pm t_{\alpha/2, \text{df}} \cdot \sqrt{\text{SE}(\hat{y})^2 + \text{Var}(\text{residuals})}
+   \]
+
+   where \( \text{Var}(\text{residuals}) \) is the variance of the residuals.
+
+   In R, this can be calculated using:
+
+   \begin{verbatim}
+   predict(model, newdata=data.frame(x=x_0), interval="prediction")
+   \end{verbatim}
+
+   For example:
+
+   \begin{verbatim}
+   > predict(model, newdata=data.frame(Age=40), interval="prediction")
+       fit      lwr      upr
+   1 4.593114 3.933306 5.252921
+   \end{verbatim}
+
+   This indicates that the 95\% prediction interval for a 40-year-old woman’s basal oxytocin level ranges from 3.933 to 5.253 pg/mL.
+
+\subsection{Examples}
+
+\textbf{Breath Holding Study:}
+
+For a linear model relating height and breath holding time, the 95\% confidence interval and prediction interval can be found similarly. Given the options:
+
+\begin{itemize}
+    \item 95\% Confidence Interval for height 170 cm: 
+        \begin{itemize}
+            \item (28.2, 42.7) s
+            \item (29.4, 41.4) s
+            \item (5.80, 65.0) s
+        \end{itemize}
+    \item 95\% Prediction Interval for height 170 cm: 
+        \begin{itemize}
+            \item (28.2, 42.7) s
+            \item (29.4, 41.4) s
+            \item (5.80, 65.0) s
+        \end{itemize}
+\end{itemize}
+
+Select the appropriate interval based on your model output.
+
+\end{document}

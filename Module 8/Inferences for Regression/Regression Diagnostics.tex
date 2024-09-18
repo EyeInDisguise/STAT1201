@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{Regression Diagnostics}
+
+In linear regression, it is crucial to check the following assumptions:
+\begin{itemize}
+    \item The underlying relationship between the variables is linear.
+    \item The residuals (errors) are normally distributed.
+    \item The residual variability is constant (homoscedasticity).
+\end{itemize}
+
+\subsection{Checking Linearity}
+
+To check if the relationship is linear, plot the residuals against the explanatory variable. In R, you can do this as follows:
+
+\begin{verbatim}
+library(lattice)
+xyplot(Residuals ~ Age, oxytocin, xlab="Age (years)", ylab="Residual (pg/mL)", type=c("p","smooth"))
+\end{verbatim}
+
+This plot should ideally show no obvious pattern. If a pattern is present, it may indicate a non-linear relationship.
+
+\subsection{Checking Residual Variability}
+
+You can also check for constant residual variability by plotting residuals against the fitted values:
+
+\begin{verbatim}
+xyplot(Residuals ~ predict(oxy.age), xlab="Fitted value (pg/mL)", ylab="Residual (pg/mL)", oxytocin, type=c("p","smooth"))
+\end{verbatim}
+
+This plot helps in assessing whether the variability of residuals remains constant across the range of fitted values.
+
+\subsection{Checking Normality of Residuals}
+
+To check if the residuals are normally distributed, you can use density and normal probability plots:
+
+\begin{verbatim}
+densityplot(~ Residuals, oxytocin, n=512, xlab="Residual (pg/mL)")
+qqmath(~ Residuals, oxytocin, xlab="Z", ylab="Residual (pg/mL)")
+\end{verbatim}
+
+These plots help in determining if the residuals follow a normal distribution.
+
+\section{Exponential Relationships}
+
+Consider a model where the relationship between two variables is exponential, such as:
+
+\[
+y = ae^{-bt}
+\]
+
+To transform this into a linear relationship, take the natural logarithm of both sides:
+
+\[
+\ln(y) = \ln(a) - bt
+\]
+
+This gives a linear relationship between \(\ln(y)\) and \(t\). By fitting a least-squares line to \(\ln(y)\) versus \(t\), we can estimate \(a\) and \(b\). 
+
+\subsection{Example: Exponential Fit}
+
+Given the least-squares line in the transformed plot:
+
+\[
+\ln(y) = \text{intercept} + \text{slope} \cdot t
+\]
+
+Reversing the log-transform to find the exponential fit gives:
+
+\[
+y = e^{\text{intercept}} \cdot e^{(\text{slope} \cdot t)}
+\]
+
+\subsection{Estimating Exponential Fit}
+
+To estimate the dissolving time \(y\) for a temperature \(t\), substitute the temperature into the exponential model. For instance, if the temperature is 50°C, calculate \(y\) based on the fitted exponential model.
+
+\section{Power Relationships}
+
+Power relationships can be modeled as:
+
+\[
+y = a x^b
+\]
+
+To linearize this, take the logarithm of both sides:
+
+\[
+\ln(y) = \ln(a) + b \ln(x)
+\]
+
+This transforms the power relationship into a linear one, which can be fitted using least-squares regression. From the fitted line, you can estimate \(a\) and \(b\).
+
+\end{document}

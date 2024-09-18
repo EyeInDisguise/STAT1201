@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Pearson Correlation}
+
+\subsection{Introduction}
+The Pearson correlation coefficient measures the strength and direction of the linear relationship between two variables. It is denoted by \( r \) and ranges from \(-1\) to \(1\), where:
+\begin{itemize}
+    \item \( r = 1 \) indicates a perfect positive linear relationship,
+    \item \( r = -1 \) indicates a perfect negative linear relationship,
+    \item \( r = 0 \) indicates no linear relationship.
+\end{itemize}
+
+\subsection{Calculation}
+The Pearson correlation coefficient \( r \) is calculated using the formula:
+\begin{equation}
+    r = \frac{n \sum (xy) - (\sum x)(\sum y)}{\sqrt{[n \sum (x^2) - (\sum x)^2][n \sum (y^2) - (\sum y)^2]}}
+\end{equation}
+where:
+\begin{itemize}
+    \item \( n \) is the number of data points,
+    \item \( x \) and \( y \) are the individual data points for the two variables,
+    \item \( \sum xy \) is the sum of the product of paired scores,
+    \item \( \sum x \) and \( \sum y \) are the sums of the individual scores,
+    \item \( \sum x^2 \) and \( \sum y^2 \) are the sums of the squared scores.
+\end{itemize}
+
+\subsection{Example: Pulse Rate and Height}
+To find the Pearson correlation for the relationship between pulse rate and height, use the data provided in the survey. Compute the correlation coefficient using the above formula or a statistical tool.
+
+Given options:
+\begin{itemize}
+    \item \(-0.3411\)
+    \item \(+0.0153\)
+    \item \(+0.4315\)
+    \item \(+0.6589\)
+\end{itemize}
+
+Calculate the correlation coefficient to determine which value matches the relationship between pulse rate and height.
+
+\subsection{Interpreting Results}
+\begin{itemize}
+    \item A positive \( r \) value indicates a positive linear relationship,
+    \item A negative \( r \) value indicates a negative linear relationship,
+    \item The magnitude of \( r \) indicates the strength of the relationship.
+\end{itemize}
+
+\end{document}

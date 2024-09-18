@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Multiple Testing}
+
+When performing multiple hypothesis tests, the risk of Type I errors (false positives) increases. This is known as the problem of multiple comparisons. To control the overall error rate, adjustments to the \( p \)-values are necessary. This is crucial in various contexts, such as genetic studies where many tests are performed.
+
+\subsection{Bonferroni Correction}
+
+The Bonferroni correction is a widely used method to adjust \( p \)-values when multiple tests are conducted. It controls the family-wise error rate by adjusting the significance threshold for each individual test. 
+
+If we are conducting \( m \) hypothesis tests and our target family-wise error rate is \( \alpha \), the significance threshold for each individual test is given by:
+
+\[
+\alpha_{\text{adjusted}} = \frac{\alpha}{m}
+\]
+
+where \( \alpha \) is the desired overall error rate, and \( m \) is the number of tests.
+
+\subsection{Example Calculation}
+
+Suppose we are conducting 20 hypothesis tests and our target error rate is \( \alpha = 0.05 \). Using the Bonferroni correction, the significance threshold for each individual test is calculated as follows:
+
+\[
+\alpha_{\text{adjusted}} = \frac{0.05}{20} = 0.0025
+\]
+
+Thus, each individual test should use a significance threshold of \( 0.0025 \) to control the overall error rate.
+
+\end{document}

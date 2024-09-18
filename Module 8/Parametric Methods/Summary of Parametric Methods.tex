@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Parametric Methods}
+
+The confidence intervals and tests discussed so far have employed parametric methods. These methods utilize a sample statistic to estimate a population parameter. For instance, the sample mean \(\bar{x}\) estimates the population mean \(\mu\), and the sample least-squares slope \(\hat{\beta}\) estimates the population slope \(\beta\). This process also involves assuming a specific distribution for the estimate of the parameter. In our cases, we have assumed a Normal distribution. The Central Limit Theorem supports this assumption for large enough samples; however, for smaller samples, it is important to verify this assumption more carefully. Nonparametric procedures, which do not rely on the normality assumption, will be covered in Module 12.
+
+Apart from Analysis of Variance, we have primarily explored one method of inference. Each confidence interval has followed the general form:
+
+\[
+\text{Estimate} \pm (\text{Critical Value}) \times (\text{Standard Error})
+\]
+
+where Greek letters have been used to denote population parameters. We will now use the letter \(\theta\) to represent an arbitrary parameter (e.g., \(\mu\) or \(\beta\)).
+
+Thus, the general confidence interval can be expressed more mathematically as:
+
+\[
+\hat{\theta} \pm z_{\alpha/2} \times \text{SE}(\hat{\theta})
+\]
+
+where \(\hat{\theta}\) is the sample estimate, \(z_{\alpha/2}\) is the critical value for the confidence level, and \(\text{SE}(\hat{\theta})\) is the standard error of the estimate.
+
+Similarly, every significance test has followed the general form:
+
+\[
+\frac{\text{Estimate} - \text{Null Hypothesis Value}}{\text{Standard Error}}
+\]
+
+which can be written mathematically as:
+
+\[
+\frac{\hat{\theta} - \theta_0}{\text{SE}(\hat{\theta})}
+\]
+
+where \(\theta_0\) is the value of \(\theta\) specified by the null hypothesis.
+
+To calculate a confidence interval or a test statistic, we need the appropriate standard error for the estimate in question. Standard error formulas related to linear regression are provided for reference, but in practice, these are usually obtained from statistical software like R.
+
+\end{document}

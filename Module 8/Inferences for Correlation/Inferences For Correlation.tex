@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Inferences for Correlation}
+
+\subsection{Pearson Correlation Coefficient}
+The Pearson correlation coefficient, denoted by \( r \), summarizes the strength and direction of a linear relationship between two variables. It ranges from \(-1\) to \(1\):
+\begin{itemize}
+    \item \( r = 1 \) indicates a perfect positive linear relationship,
+    \item \( r = -1 \) indicates a perfect negative linear relationship,
+    \item \( r = 0 \) indicates no linear relationship.
+\end{itemize}
+
+\subsection{Testing for Association}
+To assess evidence of an association based on the correlation value, a \( p \)-value can be calculated directly using the \( t \)-distribution. The steps in this process involve:
+\begin{itemize}
+    \item Calculating the test statistic \( t \) from the correlation coefficient,
+    \item Determining the \( p \)-value from the \( t \)-distribution.
+\end{itemize}
+
+\subsection{Positive Association Example}
+In Module 7, we examined a study comparing plant biodiversity between conventional and organic vineyards. For the organic vineyards, the correlation coefficient between total plant species and years of organic management was \( r = 0.7060 \). Based on this correlation:
+\begin{itemize}
+    \item There is strong evidence of a positive association between plant species and years of organic management.
+\end{itemize}
+
+\subsection{Pearson Correlation Calculation}
+After correcting any unusual values, the Pearson correlation coefficient between height and forearm length for the Islanders in the Island survey can be computed using R. The result should be provided to four decimal places.
+
+\subsection{Hypothesis Testing}
+Based on the corrected correlation coefficient:
+\begin{itemize}
+    \item Determine if there is evidence of an association between height and forearm length.
+    \item The possible answers are:
+    \begin{itemize}
+        \item There is no evidence of an association.
+        \item There is weak evidence of an association.
+        \item There is moderate evidence of an association.
+        \item There is strong evidence of an association.
+    \end{itemize}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Least-Squares Lines}
+
+When modeling a linear relationship in data, we use the equation of a straight line:
+
+\[
+\hat{y} = \beta_0 + \beta_1 x
+\]
+
+where \( \hat{y} \) is the predicted value, \( \beta_0 \) is the intercept, and \( \beta_1 \) is the slope of the line. For any given \( x \), we can use this line to predict \( y \). However, since the data points do not lie perfectly on a line, there will be errors in predictions:
+
+\[
+e_i = y_i - \hat{y}_i
+\]
+
+where \( e_i \) is the prediction error for the \( i \)-th observation, and \( y_i \) is the actual value.
+
+To find the “best” line, we minimize the sum of squared errors:
+
+\[
+\text{Sum of Squared Errors (SSE)} = \sum_{i=1}^n e_i^2
+\]
+
+This is preferable to minimizing the sum of errors directly because positive and negative errors can cancel each other out. By minimizing the SSE, we determine the least-squares estimates for \( \beta_0 \) and \( \beta_1 \):
+
+\[
+\beta_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}
+\]
+
+\[
+\beta_0 = \bar{y} - \beta_1 \bar{x}
+\]
+
+where \( \bar{x} \) and \( \bar{y} \) are the sample means of \( x \) and \( y \), respectively.
+
+\section{Oxytocin and Emotions}
+
+In the study from Module 7, we examined the relationship between basal plasma oxytocin levels and age. The scatter plot and least-squares fit line are used to describe this relationship. The least-squares line for oxytocin levels versus age was found to be:
+
+\[
+\hat{y} = \beta_0 + \beta_1 x
+\]
+
+where \( \beta_1 \) suggests that for every year older, the mean plasma oxytocin level decreases by approximately 0.01 pg/mL.
+
+\subsection{Estimates}
+
+For a subject aged 77 years, the estimated basal oxytocin level is given by substituting \( x = 77 \) into the least-squares line equation.
+
+\subsection{Prediction Error}
+
+If the actual basal oxytocin level for the subject was 4.57 pg/mL, the prediction error is:
+
+\[
+\text{Prediction Error} = \text{Actual Value} - \text{Estimated Value}
+\]
+
+\section{Influential Points}
+
+Influential points can significantly affect the least-squares line. For example, if an observation (such as Jeneve Bager's) had an unusual value for the response variable, it could change the slope of the least-squares line dramatically. 
+
+In the oxytocin study, changing the value for the oldest subject from 3.92 pg/mL to 5.40 pg/mL altered the least-squares line, showing the importance of carefully examining influential points. 
+
+\end{document}

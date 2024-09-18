@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{Statistical Models}
+
+\subsection{Linear Models}
+
+In linear regression, the model is described by the equation:
+
+\[
+\hat{y} = \beta_0 + \beta_1 x
+\]
+
+where \( \hat{y} \) is the predicted value of the response variable, \( \beta_0 \) is the intercept, and \( \beta_1 \) is the slope of the line. The slope \( \beta_1 \) provides insight into the association between the response variable and the explanatory variable.
+
+To test if there is evidence of an association between the variables, we test the null hypothesis:
+
+\[
+H_0: \beta_1 = 0
+\]
+
+against the alternative hypothesis:
+
+\[
+H_A: \beta_1 \neq 0
+\]
+
+In the oxytocin and emotions study, the least-squares fit for the relationship between basal plasma oxytocin level and age was found to be:
+
+\[
+\text{Basal} = 4.982 - 0.010 \times \text{Age}
+\]
+
+The model output from R provides the following:
+
+\begin{verbatim}
+> oxytocin = read.csv("Oxytocin.csv")
+> oxy.age = lm(Basal ~ Age, data=oxytocin)
+> summary(oxy.age)
+\end{verbatim}
+
+\begin{align*}
+\text{Residual standard error} &= 0.3117 \text{ pg/mL} \\
+\text{Intercept} &= 4.981984 \text{ (Estimate)} \\
+\text{Slope} &= -0.009722 \text{ (Estimate)} \\
+\text{Standard Error of Slope} &= 0.003436 \text{ pg/mL/year} \\
+t &= \frac{\text{Estimate} - 0}{\text{Standard Error}} = \frac{-0.009722}{0.003436} \approx -2.829 \\
+\text{P-value} &= 0.00977
+\end{align*}
+
+The p-value of 0.00977 indicates strong evidence that the slope is not zero, suggesting that plasma oxytocin level depends on age.
+
+\subsection{Confidence Intervals}
+
+A 95\% confidence interval for the slope is calculated as:
+
+\[
+\text{Estimate} \pm t_{\alpha/2} \times \text{Standard Error}
+\]
+
+Using the critical value \( t_{0.025} \approx 2.074 \), the interval is:
+
+\[
+-0.009722 \pm 2.074 \times 0.003436 = (-0.0168, -0.0026) \text{ pg/mL/year}
+\]
+
+This means we are 95\% confident that the mean oxytocin level of women decreases by between 0.0026 and 0.0168 pg/mL per year of age.
+
+\section{Linear Model Questions}
+
+\subsection{Breath Holding Study}
+
+For a study where time breath can be held is related to height, if the p-value is:
+
+\begin{itemize}
+    \item \(0.131\) - No evidence of association.
+    \item \(0.066\) - Weak evidence of association.
+    \item \(0.027\) - Moderate evidence of association.
+    \item \(0.0014\) - Strong evidence of association.
+\end{itemize}
+
+\subsection{Predictions}
+
+To estimate the mean time breath can be held for people who are 170 cm tall, use the linear model. If the model predicts:
+
+\begin{itemize}
+    \item \(-181.74\) s
+    \item \(1.277\) s
+    \item \(35.42\) s
+    \item \(217.16\) s
+\end{itemize}
+
+\end{document}
