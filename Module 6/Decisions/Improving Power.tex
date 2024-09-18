@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\section*{Improving Power}
+
+\subsection*{Power and Effect Size}
+
+In hypothesis testing, power is the probability of correctly rejecting the null hypothesis when it is false. Low power can lead to Type II errors, where we fail to detect an effect that exists. Improving power is crucial for effective experimental design.
+
+\subsubsection*{Effect Size}
+
+Effect size is the magnitude of the difference we are trying to detect. Larger effect sizes lead to higher power. For example, if we want to detect a 5 bpm increase in pulse rate with a standard deviation of 6 bpm and a sample size of 5, the power is 46%. However, if the true effect is 10 bpm, the power with the same sample size increases to 92%.
+
+\[
+\text{Effect Size} = \frac{\text{Mean Increase}}{\sigma}
+\]
+
+\subsubsection*{Signal-to-Noise Ratio}
+
+The signal-to-noise ratio (or noncentrality parameter) is defined as:
+
+\[
+\text{Signal-to-Noise Ratio} = \frac{\text{Effect Size}}{\sigma}
+\]
+
+Reducing variability (\(\sigma\)) or increasing the sample size improves this ratio and thus increases power. For a given effect size, improving measurement precision or incorporating covariates can help reduce variability.
+
+\subsubsection*{Sample Size}
+
+Increasing sample size increases power. For instance, with a sample size of 10, the power to detect a 5 bpm increase improves from 46% to 78%. The relationship between sample size and power is given by:
+
+\[
+\text{Power} \approx 1 - \text{Type II Error Rate}
+\]
+
+\subsubsection*{Significance Level}
+
+The significance level (\(\alpha\)) is the probability of a Type I error (false positive). Lowering \(\alpha\) (e.g., from 0.05 to 0.01) reduces Type I errors but also decreases power. For a 5 bpm increase with a significance level of 1%, the power drops to 7%.
+
+\[
+\text{Power} = 1 - \text{P(Type II Error)}
+\]
+
+\subsubsection*{One-Sided vs Two-Sided Tests}
+
+One-sided tests have more power than two-sided tests for detecting an effect in one direction, but two-sided tests are more commonly used in practice. When planning your study, consider using a two-sided test unless you have a strong reason for a one-sided test.
+
+\subsection*{Power Analysis in Practice}
+
+Key factors affecting power include:
+\begin{itemize}
+    \item Effect Size
+    \item Variability
+    \item Sample Size
+    \item Significance Level
+\end{itemize}
+
+Consult references such as Cohen (1988) and tools in R for detailed power calculations.
+
+\subsection*{Power Analysis Problems}
+
+\textbf{1. Intercept for the Power Curve}
+
+In the given scenario with \(n = 5\) and \(\sigma = 6\), the power when the mean increase is 0 (intercept) is:
+
+\[
+\text{Intercept Power} = 1 - \text{Type II Error Rate} \text{ at } \text{Effect Size} = 0
+\]
+
+\textbf{2. Sample Size Calculation}
+
+Given:
+\begin{itemize}
+    \item Mean increase (\(\Delta\)) = 2 seconds
+    \item Standard deviation (\(\sigma\)) = 1.5 seconds
+    \item Desired power = 80\%
+    \item Significance level (\(\alpha\)) = 0.05
+\end{itemize}
+
+To find the necessary sample size for a one-sided test, use:
+
+\[
+n = \left(\frac{Z_{1-\alpha} + Z_{1-\text{power}}}{\text{Effect Size}/\sigma}\right)^2
+\]
+
+where \(Z_{1-\alpha}\) and \(Z_{1-\text{power}}\) are the critical values for the significance level and desired power, respectively.
+
+For a one-sided test with \(\alpha = 0.05\) and power = 80\%, the necessary sample size is approximately:
+
+\[
+n \approx \text{Rounded Integer}
+\]
+
+\end{document}

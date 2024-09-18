@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\title{Module 6: Statistical Inference}
+\author{}
+\date{}
+\maketitle
+
+\section{Introduction}
+In this module, we will cover important concepts in statistical inference, including confidence intervals, hypothesis testing, and the power of an experiment. Understanding these concepts will enable you to make informed decisions based on sample data and interpret the results of statistical tests effectively.
+
+\section{Factors Affecting Confidence Intervals}
+A confidence interval (CI) provides a range of values within which the population parameter is expected to lie with a certain level of confidence. The size of the confidence interval is influenced by several factors:
+
+\begin{itemize}
+    \item \textbf{Sample Size:} Larger sample sizes lead to narrower confidence intervals because the estimate of the population parameter becomes more precise.
+    \item \textbf{Confidence Level:} A higher confidence level results in a wider confidence interval. For example, a 95\% CI will be wider than a 90\% CI.
+    \item \textbf{Population Variability:} Greater variability in the population data increases the width of the confidence interval.
+\end{itemize}
+
+\section{Student's t-Distribution}
+The Student's t-distribution is used instead of the normal distribution when the sample size is small and/or the population standard deviation is unknown. It is similar to the normal distribution but has heavier tails, which account for the additional uncertainty in smaller samples.
+
+\begin{itemize}
+    \item \textbf{Degrees of Freedom:} The shape of the t-distribution depends on the degrees of freedom, which are related to the sample size.
+    \item \textbf{Role:} It is used to construct confidence intervals and perform hypothesis tests for sample means when the sample size is small.
+\end{itemize}
+
+\section{Calculating a Confidence Interval for a Mean}
+To calculate a confidence interval for a mean using standard error, follow these steps:
+
+\begin{itemize}
+    \item \textbf{Standard Error (SE):} The standard error of the mean is calculated as \( SE = \frac{\sigma}{\sqrt{n}} \), where \(\sigma\) is the population standard deviation and \(n\) is the sample size.
+    \item \textbf{Confidence Interval Formula:} For a normal distribution, the confidence interval is given by:
+    \[
+    \text{CI} = \bar{X} \pm z \cdot SE
+    \]
+    where \(\bar{X}\) is the sample mean, \(z\) is the critical value from the standard normal distribution corresponding to the desired confidence level, and \(SE\) is the standard error.
+\end{itemize}
+
+\section{One-Sample t-Test}
+A one-sample t-test is used to determine if the sample mean differs significantly from a known value or population mean.
+
+\begin{itemize}
+    \item \textbf{Test Statistic:} 
+    \[
+    t = \frac{\bar{X} - \mu_0}{SE}
+    \]
+    where \(\bar{X}\) is the sample mean, \(\mu_0\) is the hypothesized population mean, and \(SE\) is the standard error.
+    \item \textbf{Degrees of Freedom:} \( \text{df} = n - 1 \).
+    \item \textbf{Decision Rule:} Compare the test statistic to the critical value from the t-distribution with \(n - 1\) degrees of freedom to determine whether to reject the null hypothesis.
+\end{itemize}
+
+\section{Power of an Experiment}
+The power of an experiment is the probability of correctly rejecting a false null hypothesis. It is influenced by several factors:
+
+\begin{itemize}
+    \item \textbf{Effect Size:} Larger effect sizes increase the power of a test.
+    \item \textbf{Sample Size:} Larger sample sizes increase the power of a test.
+    \item \textbf{Significance Level:} Higher significance levels (e.g., 0.10 instead of 0.05) increase the power of a test.
+    \item \textbf{Variability:} Lower variability in the data increases the power of a test.
+\end{itemize}
+
+\section{Assumptions for Procedures}
+To ensure valid results, certain assumptions must be met for statistical procedures:
+
+\begin{itemize}
+    \item \textbf{Normality:} Data should be approximately normally distributed, especially for small sample sizes.
+    \item \textbf{Independence:} Observations should be independent of each other.
+    \item \textbf{Equal Variance:} For some tests, variances should be equal across groups or samples.
+\end{itemize}
+
+\end{document}

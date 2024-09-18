@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\title{Confidence Interval for a Mean}
+\author{}
+\date{}
+\maketitle
+
+\section{Introduction}
+A confidence interval (CI) for a population mean allows us to make statistical inferences about the population based on sample data. The CI provides a range within which the true population mean is likely to fall, with a specified level of confidence.
+
+\section{Confidence Interval Formula}
+To calculate a confidence interval for a population mean \(\mu\), use the following formula:
+
+\[
+\text{CI} = \bar{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+\]
+
+where:
+\begin{itemize}
+    \item \(\bar{X}\) is the sample mean.
+    \item \(z_{\alpha/2}\) is the number of standard errors required for the desired confidence level, obtained from the standard normal distribution.
+    \item \(\sigma\) is the population standard deviation (use \(s\) if \(\sigma\) is unknown).
+    \item \(n\) is the sample size.
+\end{itemize}
+
+For a Normal distribution, \(95\%\) of outcomes occur within \(1.96\) standard deviations of the mean. For t-distributions, the critical value depends on the degrees of freedom and is found using the \(qt\) function in R.
+
+\section{Example: Confidence Interval Calculation}
+\subsection{Finding the Critical Value}
+To calculate a \(95\%\) confidence interval using the t-distribution:
+\begin{itemize}
+    \item Determine the degrees of freedom (\(df = n - 1\)).
+    \item Use the \(qt\) function in R to find the critical value:
+    \[
+    t_{\alpha/2, \text{df}} = \text{qt}(0.975, \text{df})
+    \]
+\end{itemize}
+
+\subsection{Example Calculation}
+Suppose you want to calculate a \(95\%\) confidence interval for a sample with \(n = 11\) observations:
+\begin{itemize}
+    \item Find \(t_{0.975, 10} \approx 2.262\) using R.
+    \item Calculate the margin of error (ME) if \(\bar{X} = 50\) and \(s = 10\):
+    \[
+    \text{ME} = t_{\alpha/2, \text{df}} \cdot \frac{s}{\sqrt{n}} = 2.262 \cdot \frac{10}{\sqrt{11}} \approx 6.81
+    \]
+    \item Construct the CI:
+    \[
+    \text{CI} = \bar{X} \pm \text{ME} = 50 \pm 6.81 \text{ which gives } [43.19, 56.81]
+    \]
+\end{itemize}
+
+\section{Confidence Interval for Mean Oxytocin Level}
+\textbf{Data:}
+\begin{itemize}
+    \item Sample Mean (\(\bar{X}\)) = 4.429 pg/mL
+    \item Sample Standard Deviation (\(s\)) = 0.2670 pg/mL
+    \item Sample Size (\(n\)) = 12
+\end{itemize}
+
+\textbf{Calculate 95\% CI:}
+\begin{itemize}
+    \item Degrees of Freedom (\(df\)) = 12 - 1 = 11
+    \item Critical Value: \(t_{0.975, 11} \approx 2.201\)
+    \item Standard Error (SE):
+    \[
+    \text{SE} = \frac{s}{\sqrt{n}} = \frac{0.2670}{\sqrt{12}} \approx 0.077
+    \]
+    \item Margin of Error (ME):
+    \[
+    \text{ME} = t_{\alpha/2, \text{df}} \cdot \text{SE} = 2.201 \cdot 0.077 \approx 0.17
+    \]
+    \item Confidence Interval:
+    \[
+    \text{CI} = \bar{X} \pm \text{ME} = 4.429 \pm 0.17 = [4.259, 4.599]
+    \]
+\end{itemize}
+
+\section{Confidence Interval for Mean Pulse Rate}
+\textbf{Data:}
+\begin{itemize}
+    \item Sample Mean (\(\bar{X}\)) = 68.5 bpm
+    \item Sample Standard Deviation (\(s\)) = 10.77 bpm
+    \item Sample Size (\(n\)) = 60
+\end{itemize}
+
+\textbf{Calculate 95\% CI:}
+\begin{itemize}
+    \item Degrees of Freedom (\(df\)) = 60 - 1 = 59
+    \item Critical Value: \(t_{0.975, 59} \approx 2.000\) (approximation for large \(n\))
+    \item Standard Error (SE):
+    \[
+    \text{SE} = \frac{s}{\sqrt{n}} = \frac{10.77}{\sqrt{60}} \approx 1.39
+    \]
+    \item Margin of Error (ME):
+    \[
+    \text{ME} = t_{\alpha/2, \text{df}} \cdot \text{SE} = 2.000 \cdot 1.39 \approx 2.78
+    \]
+    \item Confidence Interval:
+    \[
+    \text{CI} = \bar{X} \pm \text{ME} = 68.5 \pm 2.78 = [65.7, 71.3]
+    \]
+\end{itemize}
+
+\section{Conclusion}
+Confidence intervals offer a range of plausible values for a population mean based on sample data. They help in understanding the precision of the sample estimate and the uncertainty associated with it.
+
+\end{document}

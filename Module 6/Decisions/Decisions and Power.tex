@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\section*{Decisions and Power}
+
+This document covers the important topics of hypothesis testing and statistical power. These concepts are fundamental for analyzing and interpreting data in the context of statistical studies.
+
+\subsection*{One-Sample T-test}
+
+A one-sample \( t \)-test is used to determine if the mean of a sample is significantly different from a hypothesized value. The test statistic is given by:
+
+\[
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}
+\]
+
+where \(\bar{x}\) is the sample mean, \(\mu_0\) is the hypothesized population mean, \(s\) is the sample standard deviation, and \(n\) is the sample size. The test statistic measures how many standard errors the sample mean is away from the hypothesized mean.
+
+For example, suppose we test the null hypothesis \(H_0: \mu = 0\) against the alternative hypothesis \(H_1: \mu > 0\). If we have 10 observations with a mean of \(\bar{x} = 5.10\) bpm and a standard deviation \(s\), the P-value is computed as follows:
+
+1. Compute the standard error of the sample mean:
+
+\[
+\text{SE} = \frac{s}{\sqrt{n}}
+\]
+
+2. Calculate the \( t \)-statistic:
+
+\[
+t = \frac{\bar{x} - \mu_0}{\text{SE}}
+\]
+
+3. Find the P-value using the \( t \)-distribution with \(n-1\) degrees of freedom. For \( t = 2.89 \) with \(df = 9\), the P-value is approximately 0.0089. This indicates strong evidence against the null hypothesis.
+
+\subsection*{The First T-Test}
+
+The first \( t \)-test, introduced by Student (1908), involved comparing the effectiveness of a new sedative with an existing one. The researcher tested the hypotheses:
+
+\[
+H_0: \mu_{\text{new}} \leq \mu_{\text{existing}}
+\]
+\[
+H_1: \mu_{\text{new}} > \mu_{\text{existing}}
+\]
+
+where \(\mu_{\text{new}}\) is the mean additional hours of sleep with the new sedative over the existing one. Based on data showing a mean of 1.58 additional hours (with standard deviation 1.23 hours), you can replicate the \( t \)-test to evaluate the evidence. 
+
+\subsection*{Passage Time of Light}
+
+In a study by Newcomb (1882), the mean passage time of light was measured with a mean of 26.21 ns and a standard deviation of 10.745 ns. The currently accepted value is 33.02 ns. To test if there is evidence of bias in Newcomb’s apparatus, use a two-sided \( t \)-test:
+
+\[
+H_0: \mu = 33.02
+\]
+\[
+H_1: \mu \neq 33.02
+\]
+
+Based on the calculated P-value, you can conclude the level of evidence for bias:
+
+\begin{itemize}
+    \item No evidence (\( p > 0.1 \))
+    \item Weak evidence (\(0.05 < p \leq 0.1\))
+    \item Moderate evidence (\(0.01 < p \leq 0.05\))
+    \item Strong evidence (\( p \leq 0.01\))
+\end{itemize}
+
+\end{document}
