@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Discrete Random Variables}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Discrete Random Variables}
+General random processes can have outcomes such as male or female (for the sex of a random person) or heads or tails (for the outcome of a coin toss). However, since these outcomes are not numerical, we cannot perform calculations with them directly.
+
+Instead, we focus on \textbf{random variables}, which are random processes with numerical outcomes. A \textbf{discrete random variable} takes on discrete (countable) outcomes. For example, a coin toss can be represented as 1 for heads and 0 for tails.
+
+\section{Probability Models}
+Suppose a random process has three possible outcomes: $A$, $B$, and $C$. The following are examples of valid and invalid probability models:
+
+\begin{itemize}
+    \item \textbf{Valid:} $P(A) = 0.3$, $P(B) = 0.4$, $P(C) = 0.3$ \\
+    Since the probabilities sum to 1 ($0.3 + 0.4 + 0.3 = 1$), this is a valid model.
+    
+    \item \textbf{Invalid:} $P(A) = 0.5$, $P(B) = 0.3$, $P(C) = 0.4$ \\
+    Here, the probabilities sum to 1.2 ($0.5 + 0.3 + 0.4 = 1.2$), which is greater than 1, making this model invalid.
+    
+    \item \textbf{Invalid:} $P(A) = 0.5$, $P(B) = 0.3$, $P(C) = -0.2$ \\
+    Since probabilities cannot be negative, this is an invalid model.
+    
+    \item \textbf{Valid:} $P(A) = 0.25$, $P(B) = 0.25$, $P(C) = 0.5$ \\
+    The probabilities sum to 1 ($0.25 + 0.25 + 0.5 = 1$), making this a valid model.
+\end{itemize}
+
+\section{Sample Space}
+The \textbf{sample space} is the set of all possible outcomes of a random process. For example, if we take a sample of 4 students and record whether each student lives at home or not, the sample space has:
+
+\[
+2^4 = 16 \quad \text{outcomes}.
+\]
+
+Each outcome can be represented as a sequence of "yes" or "no" (living at home or not), such as $(\text{yes, no, yes, no})$.
+
+Sometimes, we are only interested in the number of students who live at home. In this case, there are 5 possible outcomes:
+\[
+0, 1, 2, 3, 4
+\]
+students living at home.
+
+\section{Event Probability}
+Suppose we take a sample of 4 students at random, and the outcomes of living at home ($H$) and not living at home ($\neg H$) are equally likely. Let $X$ be the random variable representing the number of students who live at home. The possible values for $X$ are $0, 1, 2, 3, 4$. 
+
+The probability of getting exactly 2 students who live at home is denoted as $P(X = 2)$. Since the outcomes are equally likely, we can calculate the probability using binomial distribution:
+
+\[
+P(X = 2) = \binom{4}{2} \times \left(\frac{1}{2}\right)^2 \times \left(\frac{1}{2}\right)^2 = \frac{6}{16} = 0.375.
+\]
+
+Thus, $P(X = 2) = 0.375$.
+
+\end{document}
