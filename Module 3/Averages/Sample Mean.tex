@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Notes on Sample Mean}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Definition}
+
+The \textbf{sample mean} is a measure of central tendency, representing the average value of a set of observations from a sample. If we have a sample of $n$ observations, denoted as $x_1, x_2, \dots, x_n$, the sample mean is given by the formula:
+
+\[
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\]
+
+where:
+\begin{itemize}
+    \item $n$ is the number of observations in the sample.
+    \item $x_i$ represents each individual observation.
+    \item $\bar{x}$ is the sample mean (read as "x-bar").
+\end{itemize}
+
+\section*{Properties of the Sample Mean}
+
+\begin{enumerate}
+    \item \textbf{Unbiased estimator:} The sample mean is an unbiased estimator of the population mean $\mu$. This means that on average, the sample mean will equal the population mean, i.e.,
+    \[
+    \mathbb{E}[\bar{x}] = \mu
+    \]
+    
+    \item \textbf{Sensitivity to outliers:} The sample mean is sensitive to extreme values (outliers). A single outlier can have a large effect on the mean.
+    
+    \item \textbf{Additivity:} The mean of the sum of two random variables is the sum of their means. If $X$ and $Y$ are random variables, then:
+    \[
+    \mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]
+    \]
+    
+    \item \textbf{Linear transformation:} If each observation $x_i$ is transformed by multiplying by a constant $a$ and adding a constant $b$, then the mean of the transformed values is:
+    \[
+    \text{Mean of } ax_i + b = a\bar{x} + b
+    \]
+\end{enumerate}
+
+\section*{Example}
+
+Suppose we have the following sample of 5 data points representing the ages (in years) of a group of students:
+
+\[
+x_1 = 20, \quad x_2 = 22, \quad x_3 = 19, \quad x_4 = 21, \quad x_5 = 23
+\]
+
+The sample mean is calculated as follows:
+
+\[
+\bar{x} = \frac{1}{5} \left( 20 + 22 + 19 + 21 + 23 \right) = \frac{1}{5} \times 105 = 21
+\]
+
+Thus, the sample mean age of the students is 21 years.
+
+\section*{Variance of the Sample Mean}
+
+The variance of the sample mean is related to the population variance $\sigma^2$ and the sample size $n$. It is given by:
+
+\[
+\text{Var}(\bar{x}) = \frac{\sigma^2}{n}
+\]
+
+This shows that as the sample size $n$ increases, the variance of the sample mean decreases, meaning that the sample mean becomes a more reliable estimate of the population mean.
+
+\section*{Conclusion}
+
+The sample mean is a fundamental concept in statistics, used to summarize the central tendency of data. It is simple to calculate and has important theoretical properties, but it is also sensitive to outliers and influenced by the sample size.
+
+\end{document}

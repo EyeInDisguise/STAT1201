@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Module 4: Introduction to Random Variables and Sampling}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Overview}
+
+In this module, we transition from describing data distributions and relationships to focusing on the origin of our data. We explore methods for gathering information about a population using a sample and how to describe random processes mathematically.
+
+After completing this module, you will be able to:
+\begin{itemize}
+    \item Define parameters and statistics.
+    \item Use probability functions to model sampling.
+    \item Describe discrete random variables.
+    \item Describe continuous random variables and calculate probabilities from simple density curves.
+    \item Calculate and interpret conditional probabilities.
+    \item Use conditional probability to obtain estimates from randomized responses.
+    \item Calculate the expected value of a random variable.
+    \item Calculate the standard deviation of a random variable.
+    \item Calculate properties of transformed and combined random variables.
+\end{itemize}
+
+\section*{Key Concepts}
+
+\subsection*{Parameters and Statistics}
+\begin{itemize}
+    \item \textbf{Parameter:} A parameter is a numerical value summarizing a characteristic of the entire population (e.g., population mean $\mu$, population standard deviation $\sigma$).
+    \item \textbf{Statistic:} A statistic is a numerical value summarizing a characteristic of a sample from the population (e.g., sample mean $\bar{x}$, sample standard deviation $s$).
+\end{itemize}
+
+\subsection*{Probability Functions and Sampling}
+Probability functions model the likelihood of different outcomes in a random process. When drawing samples from a population, we can use:
+\begin{itemize}
+    \item \textbf{Probability Mass Function (PMF):} Used for discrete random variables, it gives the probability of each possible outcome.
+    \item \textbf{Probability Density Function (PDF):} Used for continuous random variables, it describes the probability density of different outcomes across an interval.
+\end{itemize}
+
+\subsection*{Discrete and Continuous Random Variables}
+\begin{itemize}
+    \item \textbf{Discrete Random Variables:} These take on a finite or countable set of values. For example, the number of heads in a sequence of coin flips.
+    \item \textbf{Continuous Random Variables:} These take on an infinite number of possible values within a range. For example, the height of individuals in a population.
+\end{itemize}
+
+\subsection*{Conditional Probability}
+Conditional probability describes the probability of an event occurring given that another event has occurred. It is given by:
+\[
+P(A|B) = \frac{P(A \cap B)}{P(B)}
+\]
+This formula allows us to adjust the probability of an event based on known conditions.
+
+\subsection*{Expected Value and Standard Deviation of a Random Variable}
+The \textbf{expected value} (or mean) of a random variable $X$ is the long-term average value of the variable over many repetitions of an experiment. For a discrete random variable, it is given by:
+\[
+E(X) = \sum_{x} x \cdot P(x)
+\]
+For a continuous random variable, it is:
+\[
+E(X) = \int_{-\infty}^{\infty} x \cdot f(x) \, dx
+\]
+where $f(x)$ is the probability density function of $X$.
+
+The \textbf{standard deviation} of a random variable is a measure of the spread of its distribution. It is calculated as:
+\[
+\sigma_X = \sqrt{E\left[(X - E(X))^2\right]}
+\]
+This represents the average distance of the random variable from its mean.
+
+\subsection*{Transformed and Combined Random Variables}
+For transformed random variables, the mean and standard deviation change according to the transformation applied. If $Y = aX + b$, where $a$ and $b$ are constants, then:
+\begin{itemize}
+    \item The expected value of $Y$: $E(Y) = aE(X) + b$
+    \item The standard deviation of $Y$: $\sigma_Y = |a| \cdot \sigma_X$
+\end{itemize}
+
+For combined random variables $X$ and $Y$, the expected value and variance follow these rules:
+\begin{itemize}
+    \item The expected value of $X + Y$: $E(X + Y) = E(X) + E(Y)$
+    \item The variance of $X + Y$ (if $X$ and $Y$ are independent): 
+    \[
+    \text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)
+    \]
+\end{itemize}
+
+\section*{Conclusion}
+
+In this module, we cover the foundational concepts of random variables, sampling, and probability. These concepts are essential for understanding how we can make inferences about populations from samples, model random processes, and calculate key properties such as expected value and standard deviation.
+
+\end{document}
