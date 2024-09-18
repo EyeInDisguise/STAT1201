@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Continuous Random Variables}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Continuous Random Variables}
+For continuous random variables, probabilities are defined over intervals rather than exact values. For instance, what is the probability that a randomly chosen person is exactly 160 cm tall? In a continuous setting, the probability of an exact value is essentially zero because continuous variables can be measured to arbitrary precision. Instead, we work with intervals.
+
+\section{Uniform Density Model}
+Consider a simple model where female heights are uniformly distributed between 150 cm and 190 cm. In this model, every height in this range is equally likely. The density function \( f(x) \) for a uniform distribution is constant over this range.
+
+The probability density function (pdf) is given by:
+
+\[
+f(x) = \frac{1}{b - a}
+\]
+
+where \( a = 150 \) cm and \( b = 190 \) cm. Thus,
+
+\[
+f(x) = \frac{1}{190 - 150} = \frac{1}{40}
+\]
+
+To find the probability that a randomly chosen female is 180 cm or taller:
+
+\[
+P(X \geq 180) = \int_{180}^{190} f(x) \, dx = \frac{190 - 180}{40} = \frac{10}{40} = 0.25
+\]
+
+Similarly, the probability that a randomly chosen female is between 160 cm and 175 cm tall:
+
+\[
+P(160 \leq X \leq 175) = \int_{160}^{175} f(x) \, dx = \frac{175 - 160}{40} = \frac{15}{40} = 0.375
+\]
+
+\section{Triangular Density Model}
+A triangular density model is more realistic for heights because it accounts for more common values near the average. Suppose the height of females follows a triangular distribution with a minimum of 150 cm, a maximum of 190 cm, and a mode (peak) at 170 cm. The height function \( f(x) \) is:
+
+\[
+f(x) = \begin{cases}
+\frac{x - 150}{20 \times 20} & \text{for } 150 \leq x < 170, \\
+\frac{190 - x}{20 \times 20} & \text{for } 170 \leq x \leq 190,
+\end{cases}
+\]
+
+where the base of the triangle is \( 190 - 150 = 40 \) cm, and the height of the triangle is 0.05. 
+
+To find the probability that a randomly chosen female is 180 cm or taller:
+
+The height of the triangle at 180 cm is:
+
+\[
+\text{Height at } 180 = \frac{180 - 170}{20} \times 0.05 = 0.025
+\]
+
+Thus,
+
+\[
+P(X \geq 180) = \int_{180}^{190} \frac{190 - x}{20 \times 20} \, dx = \frac{1}{2} \times (0.05 + 0) \times (190 - 180) = 0.025 \times 10 = 0.25
+\]
+
+To find the probability that a randomly chosen female is between 160 cm and 175 cm tall:
+
+\[
+P(160 \leq X \leq 175) = \int_{160}^{170} \frac{x - 150}{20 \times 20} \, dx + \int_{170}^{175} \frac{190 - x}{20 \times 20} \, dx
+\]
+
+The area under the first triangle (160 to 170):
+
+\[
+\int_{160}^{170} \frac{x - 150}{20 \times 20} \, dx = \frac{1}{2} \times (170 - 160) \times 0.05 = 0.25
+\]
+
+The area under the second triangle (170 to 175):
+
+\[
+\int_{170}^{175} \frac{190 - x}{20 \times 20} \, dx = \frac{1}{2} \times (175 - 170) \times 0.0375 = 0.09375
+\]
+
+So,
+
+\[
+P(160 \leq X \leq 175) = 0.25 + 0.09375 = 0.34375 \approx 34.4\%
+\]
+
+\section{Weight Distribution}
+For a skewed triangular density model of weight, you would use a similar approach to compute probabilities. If the height of the triangle at a certain weight is known, you can calculate the probability using integration as shown in the previous examples.
+
+\end{document}

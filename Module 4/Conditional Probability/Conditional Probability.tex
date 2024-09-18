@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Probability and Independence}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Conditional Probability}
+
+We use \( P(A) \) to denote the probability of an event \( A \) occurring, which tells us how likely the event is to occur.
+
+We use \( P(A \mid B) \) to denote the conditional probability of \( A \) occurring given that \( B \) has occurred. This conditionality might be based on time (e.g., the probability that the second person in a sample likes pineapple on pizza given the first does) or different attributes (e.g., the probability of having green eyes given that a person is female).
+
+Conditional probabilities are calculated using the rule:
+\[
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+\]
+This formula indicates that to find \( P(A \mid B) \), we look at the proportion of times \( A \) occurs in conjunction with \( B \), and then take the ratio to obtain the conditional probability. Note that \( P(A \cap B) \) denotes the probability that both \( A \) and \( B \) occur together.
+
+\section{Independence}
+
+We say that two events, \( A \) and \( B \), are independent if the occurrence of one event does not affect the probability distribution of the other. Mathematically, this is expressed as:
+\[
+P(A \cap B) = P(A) \cdot P(B)
+\]
+In most cases, you can decide whether two events are independent by considering their physical relationship. For example, in many scenarios, consecutive samples from a population are assumed to be independent, which can usually be ensured if the samples are chosen at random.
+
+If events are independent, the multiplication rule simplifies to:
+\[
+P(A \cap B) = P(A) \cdot P(B)
+\]
+This idea is familiar from practical examples, such as tossing a coin twice. The probability of getting two heads in a row is \( 0.25 \) since \( 50\% \) of the time the first toss is heads, and \( 50\% \) of those times the second toss will also be heads. Thus, \( 50\% \times 50\% = 25\% \). Similarly, if picking two people from a population where the proportion with a characteristic is \( p \), the probability of both having the characteristic is \( p^2 \).
+
+\section{Sampling with Replacement}
+
+Suppose you have a jar with 3 blue balls and 7 red balls. Let \( B_1 \) be the event of drawing a blue ball on the first draw and \( B_2 \) be the event of drawing a blue ball on the second draw, with replacement after each draw. The probability of drawing a blue ball on the first draw and another blue ball on the second draw is given by:
+\[
+P(B_1 \cap B_2) = P(B_1) \cdot P(B_2) = \left(\frac{3}{10}\right) \cdot \left(\frac{3}{10}\right) = \frac{9}{100} = 0.09
+\]
+
+\section{Sampling without Replacement}
+
+Using the same jar, the probability of drawing a blue ball on the first draw and another blue ball on the second draw, without replacement, is:
+\[
+P(B_1 \cap B_2) = P(B_1) \cdot P(B_2 \mid B_1) = \frac{3}{10} \cdot \frac{2}{9} = \frac{6}{90} = \frac{1}{15} \approx 0.0667
+\]
+
+\section{Independent Researchers}
+
+Testing a hypothesis at the 5\% level implies a 0.05 probability of incorrectly rejecting the null hypothesis when it is true. If 12 research teams independently test the same chemical compound to see if it is effective against HIV, the probability that at least one team finds significant evidence of an effect at the 5\% level can be calculated as follows:
+
+First, calculate the probability that none of the teams find significant evidence:
+\[
+P(\text{None}) = (1 - 0.05)^{12} = 0.95^{12} \approx 0.540
+\]
+
+Then, the probability that at least one team finds significant evidence is:
+\[
+P(\text{At least one}) = 1 - P(\text{None}) \approx 1 - 0.540 = 0.460
+\]
+
+\end{document}

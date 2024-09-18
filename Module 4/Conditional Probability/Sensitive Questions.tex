@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Warner's Method}
+
+Warner's method is a randomized response technique used to estimate sensitive proportions. Suppose 200 university students are asked the sensitive question: ``If you or your girlfriend accidentally got pregnant, would you seriously consider the possibility of an abortion?'' Each student secretly tosses a fair coin twice. If both tosses show heads (HH), the student answers truthfully. For any other outcome (TH, HT, TT), the student answers the opposite of the truth.
+
+Let \( p \) be the proportion of students who would consider an abortion. We want to estimate \( p \).
+
+\subsection*{Probability Calculations}
+
+\begin{itemize}
+    \item The probability of both tosses being heads (HH) is:
+    \[
+    P(\text{HH}) = \frac{1}{4}
+    \]
+    \item The probability of getting any other outcome (TH, HT, TT) is:
+    \[
+    P(\text{TH or HT or TT}) = \frac{3}{4}
+    \]
+\end{itemize}
+
+\subsection*{Calculating the Probability of Answering ``Yes''}
+
+The probability of answering ``Yes'' can be split into two cases:
+\begin{itemize}
+    \item If a student would consider an abortion, they answer ``Yes'' truthfully with probability \( \frac{1}{4} \), and ``No'' with probability \( \frac{3}{4} \).
+    \item If a student would not consider an abortion, they answer ``No'' truthfully with probability \( \frac{1}{4} \), and ``Yes'' with probability \( \frac{3}{4} \).
+\end{itemize}
+
+Thus, the probability of answering ``Yes'' is:
+\[
+P(\text{Yes}) = \frac{1}{4}p + \frac{3}{4}(1 - p)
+\]
+Simplify this expression:
+\[
+P(\text{Yes}) = \frac{1}{4}p + \frac{3}{4} - \frac{3}{4}p = \frac{3}{4} - \frac{1}{2}p
+\]
+
+\subsection*{Using the Sample Proportion}
+
+Given that 114 out of 200 students answered ``Yes'', the sample proportion is:
+\[
+\hat{p} = \frac{114}{200} = 0.57
+\]
+
+We use this sample proportion to estimate \( p \):
+\[
+0.57 = \frac{3}{4} - \frac{1}{2}p
+\]
+Solve for \( p \):
+\[
+\frac{1}{2}p = \frac{3}{4} - 0.57
+\]
+\[
+\frac{1}{2}p = 0.75 - 0.57 = 0.18
+\]
+\[
+p = 2 \times 0.18 = 0.36
+\]
+
+\subsection*{Conclusion}
+
+The estimated true proportion of students who would consider an abortion is approximately:
+\[
+\boxed{0.36}
+\]
+
+\end{document}

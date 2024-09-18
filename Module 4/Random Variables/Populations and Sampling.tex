@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Notes on Populations, Samples, Parameters, and Statistics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Population}
+A \textbf{population} is the complete set of individuals or objects of interest. Examples of populations include:
+\begin{itemize}
+    \item All residents of a town.
+    \item All fish in the sea.
+\end{itemize}
+In theory, we could conduct a \textbf{census} to gather information about the entire population. However, this is often impractical due to time, cost, or infeasibility (e.g., counting all fish in the sea).
+
+\section{Sample}
+A \textbf{sample} is a subset of the population used to gather information about the population as a whole. The sample should be representative of the population and free from bias. A \textbf{random sample} helps achieve representativeness by ensuring every individual in the population has an equal chance of being selected.
+
+\section{Parameters}
+A \textbf{parameter} is a numerical characteristic of a population. Parameters are typically unknown and can only be known exactly if a census is conducted.
+
+\subsection{Examples}
+\begin{itemize}
+    \item Population proportion of blue-eyed individuals:
+    \[
+    p = \frac{2660}{10369} = 0.257
+    \]
+    \item Population mean height of females:
+    \[
+    \mu = 166.0 \, \text{cm}
+    \]
+\end{itemize}
+Parameters are usually denoted by \textbf{Greek letters}:
+\begin{itemize}
+    \item Population mean: $\mu$
+    \item Population proportion: $p$
+\end{itemize}
+
+\section{Statistics}
+A \textbf{statistic} is a numerical characteristic of a sample. Statistics are used to estimate population parameters.
+
+\subsection{Examples}
+\begin{itemize}
+    \item Sample proportion of blue-eyed individuals:
+    \[
+    \hat{p} = \frac{19}{60} = 0.317
+    \]
+    \item Sample mean height of females:
+    \[
+    \bar{x} = 167.4 \, \text{cm}
+    \]
+\end{itemize}
+Statistics are typically denoted by \textbf{Roman letters}:
+\begin{itemize}
+    \item Sample mean: $\bar{x}$
+    \item Sample proportion: $\hat{p}$
+\end{itemize}
+
+\section{Sampling Bias}
+In practice, sampling introduces various biases that can affect the representativeness of the sample:
+
+\subsection{Selection Bias}
+Selection bias occurs when the sample is not representative of the population. An example is selecting participants from a telephone directory, which may \textit{under-represent younger people} who often live in shared accommodation, while \textit{over-representing older people} who live alone or as a couple. This is called \textbf{undercoverage bias}.
+
+\subsection{Self-Selection Bias}
+Self-selection bias occurs when individuals choose to participate in a survey or poll, often because they have strong opinions. An example is television polls or public voting (e.g., ``Dancing with the Stars''), where viewers with strong preferences may not represent the general population.
+
+\subsection{Nonresponse Bias}
+Nonresponse bias occurs when a portion of the sample does not respond, and their opinions differ systematically from those who do respond. For instance, university students, who are often busy, may not complete surveys, and their views might differ from the general population.
+
+\subsection{Response Bias}
+Response bias occurs when the wording of a question, survey format, or the presence of an interviewer influences how people respond, skewing the results toward certain answers.
+
+\section{Reducing Bias}
+
+\subsection{Random Sampling}
+Random sampling helps reduce bias by ensuring every individual in the population has an equal chance of being selected. However, obtaining a truly random sample can be challenging, especially when the full population list is not available.
+
+\subsection{Adjusting for Bias}
+To address bias, you can gather details from respondents (e.g., age, residence) and compare the sample distributions with known population distributions (e.g., census data). If discrepancies are found, some responses can be \textbf{weighted} more heavily to adjust for biases in the sample.
+
+\end{document}

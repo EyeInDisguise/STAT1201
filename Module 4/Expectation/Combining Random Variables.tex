@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Combining Random Variables}
+
+\subsection*{Shifting and Scaling}
+
+Consider a random variable \(X\) giving a temperature measurement in degrees Celsius with expected value \(E(X) = \mu_X\) and standard deviation \(\sigma_X\). If \(Y\) is a random variable giving the temperature in degrees Fahrenheit, then:
+\[
+Y = \frac{9}{5} X + 32
+\]
+
+The expected value and standard deviation of \(Y\) are given by:
+\[
+E(Y) = \frac{9}{5} E(X) + 32 = \frac{9}{5} \mu_X + 32
+\]
+\[
+\sigma_Y = \frac{9}{5} \sigma_X
+\]
+
+Shifting by a constant \(a\) changes the expected value but does not affect the standard deviation:
+\[
+E(a + X) = a + E(X)
+\]
+\[
+\sigma(a + X) = \sigma(X)
+\]
+
+Scaling by a constant \(b\) affects both the expected value and standard deviation:
+\[
+E(bX) = b E(X)
+\]
+\[
+\sigma(bX) = |b| \sigma(X)
+\]
+
+\subsection*{Two Random Variables}
+
+If \(X\) and \(Y\) are two random variables, their combined mean and variance are given by:
+\[
+E(X + Y) = E(X) + E(Y)
+\]
+
+For the variance:
+\[
+\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) + 2 \text{Cov}(X, Y)
+\]
+
+If \(X\) and \(Y\) are independent, then \(\text{Cov}(X, Y) = 0\) and:
+\[
+\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)
+\]
+
+The variance formula:
+\[
+\text{Var}(X - Y) = \text{Var}(X) + \text{Var}(Y)
+\]
+
+\subsection*{Daily Coffees}
+
+Let \(X\) be the number of coffees purchased in a day by a random university student with the following probability function:
+
+x = 0, 1, 2, 3
+P(x) = 0.3, 0.4, 0.2, 0.1
+
+
+\subsubsection*{Expected Value and Standard Deviation}
+
+The expected value \(E(X)\) is:
+\[
+E(X) = \sum_{i} x_i \cdot P(x_i)
+\]
+\[
+E(X) = 0 \cdot 0.3 + 1 \cdot 0.4 + 2 \cdot 0.2 + 3 \cdot 0.1
+\]
+\[
+E(X) = 0 + 0.4 + 0.4 + 0.3 = 1.1
+\]
+
+The variance \(\text{Var}(X)\) is:
+\[
+\text{Var}(X) = \sum_{i} (x_i - E(X))^2 \cdot P(x_i)
+\]
+\[
+\text{Var}(X) = (0 - 1.1)^2 \cdot 0.3 + (1 - 1.1)^2 \cdot 0.4 + (2 - 1.1)^2 \cdot 0.2 + (3 - 1.1)^2 \cdot 0.1
+\]
+\[
+\text{Var}(X) = (-1.1)^2 \cdot 0.3 + (-0.1)^2 \cdot 0.4 + (0.9)^2 \cdot 0.2 + (1.9)^2 \cdot 0.1
+\]
+\[
+\text{Var}(X) = 1.21 \cdot 0.3 + 0.01 \cdot 0.4 + 0.81 \cdot 0.2 + 3.61 \cdot 0.1
+\]
+\[
+\text{Var}(X) = 0.363 + 0.004 + 0.162 + 0.361 = 0.89
+\]
+
+The standard deviation \(\sigma_X\) is:
+\[
+\sigma_X = \sqrt{\text{Var}(X)} = \sqrt{0.89} \approx 0.945
+\]
+
+\subsubsection*{Total Number of Coffees for 100 Students}
+
+Let \(S\) be the total number of coffees purchased by 100 students. Then:
+\[
+E(S) = 100 \cdot E(X) = 100 \cdot 1.1 = 110
+\]
+
+\[
+\text{Var}(S) = 100 \cdot \text{Var}(X) = 100 \cdot 0.89 = 89
+\]
+
+The standard deviation of \(S\) is:
+\[
+\sigma_S = \sqrt{\text{Var}(S)} = \sqrt{89} \approx 9.43
+\]
+
+\end{document}
