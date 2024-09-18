@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section*{Analysis of Variance: Green Tea Consumption}
+
+
+\subsection*{ANOVA Table Setup}
+
+A one-way analysis of variance (ANOVA) was performed to compare the mean body mass index (BMI) between the three green tea consumption groups. The given data are:
+
+\[
+\text{Group Sum of Squares (SS)} = 64.42
+\]
+\[
+\text{Residual Sum of Squares (SS)} = 5809.64
+\]
+
+To complete the ANOVA table, we need to determine the degrees of freedom (DF) for each source of variation and the mean sum of squares (MS). 
+
+\subsection*{Degrees of Freedom}
+
+1. **Degrees of Freedom for Green Tea (\(\text{DF}_{\text{GreenTea}}\))**
+
+   The degrees of freedom for the treatment (green tea groups) is calculated as:
+
+   \[
+   \text{DF}_{\text{GreenTea}} = k - 1
+   \]
+
+   where \( k \) is the number of groups. For three groups, \( k = 3 \), so:
+
+   \[
+   \text{DF}_{\text{GreenTea}} = 3 - 1 = 2
+   \]
+
+2. **Degrees of Freedom for Residuals (\(\text{DF}_{\text{Residuals}}\))**
+
+   The total number of observations is \( N = 537 \). The degrees of freedom for residuals is:
+
+   \[
+   \text{DF}_{\text{Residuals}} = N - k = 537 - 3 = 534
+   \]
+
+3. **Degrees of Freedom for Total**
+
+   The total degrees of freedom is:
+
+   \[
+   \text{DF}_{\text{Total}} = N - 1 = 537 - 1 = 536
+   \]
+
+   So the degrees of freedom for each source are:
+
+   \[
+   \begin{array}{|c|c|}
+   \hline
+   \text{Source} & \text{DF} \\
+   \hline
+   \text{GreenTea} & 2 \\
+   \text{Residuals} & 534 \\
+   \text{Total} & 536 \\
+   \hline
+   \end{array}
+   \]
+
+\subsection*{Mean Sum of Squares}
+
+The mean sum of squares (MS) for each source is calculated as follows:
+
+1. **Mean Sum of Squares for Green Tea (\(\text{MS}_{\text{GreenTea}}\))**
+
+   \[
+   \text{MS}_{\text{GreenTea}} = \frac{\text{SS}_{\text{GreenTea}}}{\text{DF}_{\text{GreenTea}}} = \frac{64.42}{2} = 32.21
+   \]
+
+2. **Mean Sum of Squares for Residuals (\(\text{MS}_{\text{Residuals}}\))**
+
+   \[
+   \text{MS}_{\text{Residuals}} = \frac{\text{SS}_{\text{Residuals}}}{\text{DF}_{\text{Residuals}}} = \frac{5809.64}{534} \approx 10.87
+   \]
+
+\subsection*{F-Statistic}
+
+The F-statistic is calculated as:
+
+\[
+F = \frac{\text{MS}_{\text{GreenTea}}}{\text{MS}_{\text{Residuals}}} = \frac{32.21}{10.87} \approx 2.96
+\]
+
+\subsection*{Conclusion}
+
+To determine the significance, compare the calculated F-value with the critical value from the F-distribution table at a chosen significance level (typically \(\alpha = 0.05\)). Based on the F-value and p-value associated with it:
+
+\begin{itemize}
+    \item No evidence of a difference in mean BMI between the three green tea consumption groups (p = 0.151).
+    \item Weak evidence of a difference in mean BMI between the three green tea consumption groups (p = 0.053).
+    \item Moderate evidence of a difference in mean BMI between the three green tea consumption groups (p = 0.0377).
+    \item Strong evidence of a difference in mean BMI between the three green tea consumption groups (p = 0.0082).
+\end{itemize}
+
+Based on the F-statistic, if the calculated p-value is less than the significance level, there is evidence of a difference in BMI between the groups. 
+
+\end{document}

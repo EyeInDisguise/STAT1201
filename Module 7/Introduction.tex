@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{Module 7: Advanced Statistical Techniques}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Comparing Two Groups with the t Distribution}
+
+\subsection{Two-Sample t-Test}
+When comparing the means of two independent groups, we use the two-sample t-test. The test statistic is given by:
+\begin{equation}
+t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{s_p^2 \left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}
+\end{equation}
+where $\bar{X}_1$ and $\bar{X}_2$ are the sample means, $s_p^2$ is the pooled variance, and $n_1$ and $n_2$ are the sample sizes.
+
+\subsection{Pooled Estimate of Standard Deviation}
+When the variances of the two groups are assumed to be equal, the pooled estimate of standard deviation $s_p$ is calculated as:
+\begin{equation}
+s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}
+\end{equation}
+where $s_1^2$ and $s_2^2$ are the sample variances of the two groups.
+
+\section{Determining Optimum Group Sizes}
+
+\subsection{Sample Size Calculation}
+To achieve a desired power for detecting a difference between two groups, we calculate the required sample size using:
+\begin{equation}
+n = \left(\frac{Z_{\alpha/2} + Z_{\beta}}{\delta / \sigma}\right)^2
+\end{equation}
+where $Z_{\alpha/2}$ is the critical value for the desired significance level, $Z_{\beta}$ is the critical value for the desired power, $\delta$ is the effect size, and $\sigma$ is the standard deviation.
+
+\section{Analysis of Variance (ANOVA)}
+
+\subsection{One-Way ANOVA}
+One-way ANOVA is used to compare means across three or more groups. The test statistic is:
+\begin{equation}
+F = \frac{\text{Between-group variance}}{\text{Within-group variance}}
+\end{equation}
+where the between-group variance measures the variance among group means, and the within-group variance measures the variance within each group.
+
+\subsection{Reasoning Behind ANOVA}
+ANOVA is used to test the hypothesis that the means of several groups are equal. It extends the idea of the t-test to more than two groups by comparing variances.
+
+\section{Multiple Hypothesis Testing}
+
+\subsection{Issues with Multiple Comparisons}
+When performing multiple hypothesis tests, the risk of Type I errors increases. Multiple testing increases the chance of finding at least one false positive.
+
+\subsection{Bonferroni Correction}
+To control the overall Type I error rate, the Bonferroni correction adjusts the significance level:
+\begin{equation}
+\alpha_{\text{adj}} = \frac{\alpha}{m}
+\end{equation}
+where $\alpha$ is the original significance level and $m$ is the number of tests.
+
+\end{document}

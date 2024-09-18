@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section*{One-Way ANOVA: Wind Speed and Transpiration}
+
+A study was conducted to assess the effect of wind speed on transpiration in plants. The study involved 15 string bean plants exposed to different wind speeds: low, high, and no wind. The decrease in water in each cylinder was recorded, and the results are analyzed using one-way ANOVA.
+
+\subsection*{ANOVA Table Setup}
+
+Given data:
+
+\[
+\text{Group Sum of Squares (SS)} = 53.43
+\]
+\[
+\text{Residual Sum of Squares (SS)} = 12.50
+\]
+
+To complete the ANOVA table:
+
+1. **Degrees of Freedom**
+
+   \[
+   \text{DF}_{\text{WindSpeed}} = k - 1 = 3 - 1 = 2
+   \]
+   \[
+   \text{DF}_{\text{Residuals}} = N - k = 15 - 3 = 12
+   \]
+   \[
+   \text{DF}_{\text{Total}} = N - 1 = 15 - 1 = 14
+   \]
+
+2. **Mean Sum of Squares**
+
+   \[
+   \text{MS}_{\text{WindSpeed}} = \frac{\text{SS}_{\text{WindSpeed}}}{\text{DF}_{\text{WindSpeed}}} = \frac{53.43}{2} = 26.715
+   \]
+   \[
+   \text{MS}_{\text{Residuals}} = \frac{\text{SS}_{\text{Residuals}}}{\text{DF}_{\text{Residuals}}} = \frac{12.50}{12} \approx 1.042
+   \]
+
+3. **F-Statistic**
+
+   \[
+   F = \frac{\text{MS}_{\text{WindSpeed}}}{\text{MS}_{\text{Residuals}}} = \frac{26.715}{1.042} \approx 25.65
+   \]
+
+   From the ANOVA table, the p-value is \( 4.64 \times 10^{-5} \), indicating very strong evidence of differences in mean water loss between the three wind speeds.
+
+4. **R-Squared**
+
+   \[
+   R^2 = \frac{\text{SS}_{\text{WindSpeed}}}{\text{SS}_{\text{Total}}}
+   \]
+
+   To find \(\text{SS}_{\text{Total}}\), we add the group and residual sums of squares:
+
+   \[
+   \text{SS}_{\text{Total}} = \text{SS}_{\text{WindSpeed}} + \text{SS}_{\text{Residuals}} = 53.43 + 12.50 = 65.93
+   \]
+
+   Therefore,
+
+   \[
+   R^2 = \frac{53.43}{65.93} \approx 0.811
+   \]
+
+   This indicates that wind speed explains about 81\% of the variability in water loss.
+
+\section*{Juicing Oranges}
+
+A student studied whether warming oranges before juicing affects the amount of juice obtained. After microwaving 15 oranges and keeping 15 unheated, the amount of juice was measured. Using a one-way ANOVA, the results are:
+
+\begin{itemize}
+    \item **p-value**: To be determined based on the results from R. It could be one of the following:
+    \begin{itemize}
+        \item No evidence that warming affects the mean amount of juice obtained.
+        \item Weak evidence that warming affects the mean amount of juice obtained.
+        \item Moderate evidence that warming affects the mean amount of juice obtained.
+        \item Strong evidence that warming affects the mean amount of juice obtained.
+    \end{itemize}
+    \item **R-squared value**: This value will be determined based on the ANOVA results and should be provided to 3 decimal places.
+\end{itemize}
+
+\end{document}

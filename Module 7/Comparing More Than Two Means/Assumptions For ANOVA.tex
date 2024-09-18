@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section*{Assumptions for One-Way ANOVA}
+
+In one-way analysis of variance (ANOVA), we represent the model as follows:
+
+\[
+Y_{ij} = \mu_i + \epsilon_{ij}
+\]
+
+where:
+\begin{itemize}
+    \item \(Y_{ij}\) is the observation for the \(j\)-th subject in group \(i\),
+    \item \(\mu_i\) is the mean response for the group \(i\),
+    \item \(\epsilon_{ij}\) represents the residuals or errors, assumed to be normally distributed with mean 0 and constant variance \(\sigma^2\).
+\end{itemize}
+
+The model assumes:
+\begin{enumerate}
+    \item \textbf{Groups are independent:} The observations in each group are independent of each other.
+    \item \textbf{Residuals have a Normal distribution:} The residuals \(\epsilon_{ij}\) are normally distributed.
+    \item \textbf{Homogeneity of variances:} The variability (variance) of the residuals is constant across all groups.
+\end{enumerate}
+
+These assumptions can be checked using:
+\begin{itemize}
+    \item Side-by-side box plots of the original values.
+    \item Plots of the residuals (the differences between observed values and the sample means for their group).
+\end{itemize}
+
+\section*{Rate of Dissolution}
+
+A student experiment investigated the effect of water temperature on the dissolution times of soluble aspirin tablets. Three temperature conditions were tested:
+\begin{itemize}
+    \item Hot (78-90℃),
+    \item Cold (7-10℃),
+    \item Tap water (15-17℃).
+\end{itemize}
+A total of 60 tablets were used, with 20 tablets for each temperature condition. The dissolving times (in seconds) are recorded in the file \texttt{Tablets.csv}.
+
+\subsection*{Dealing with Variability}
+
+Initial analysis showed that while the distributions were fairly symmetric, they had different standard deviations. This pattern is common, where larger magnitude values exhibit greater variability.
+
+\subsubsection*{Transformation Techniques}
+
+To address the issue of different standard deviations, several transformations were considered:
+\begin{itemize}
+    \item \textbf{Log Transformation:} Applied to transform a multiplicative effect into an additive one. However, after log transformation, variability between groups remained large.
+    \item \textbf{Reciprocal Transformation:} The reciprocal of each observation was taken (e.g., a measurement of 98 seconds becomes \(1/98 = 0.0102\) seconds). This transformation stabilizes the variability and converts the measurement to a rate of dissolution (e.g., 0.0102 tablets per second).
+\end{itemize}
+
+The reciprocal transformation was successful in stabilizing variability, and the transformed values can be used for further analysis of variance.
+
+\end{document}

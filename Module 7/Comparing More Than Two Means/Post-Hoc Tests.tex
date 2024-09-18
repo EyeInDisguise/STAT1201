@@ -1,0 +1,146 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Statistical Analysis Notes}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Analysis of Variance: Green Tea Consumption}
+
+Researchers conducted an observational study of green tea and coffee consumption from 537 men and women at two workplaces in Japan (Pham et al., 2013). Subjects were classified into three groups for green tea consumption: \( \leq 1 \) cup/day, \( 2-3 \) cups/day, and \( \geq 4 \) cups/day.
+
+\subsection{Degrees of Freedom}
+
+To find the degrees of freedom for GreenTea and Residuals:
+
+\[
+\text{Degrees of Freedom for GreenTea} = \text{Number of Groups} - 1 = 3 - 1 = 2
+\]
+
+\[
+\text{Degrees of Freedom for Residuals} = \text{Total Observations} - \text{Number of Groups} = 537 - 3 = 534
+\]
+
+\subsection{Mean Sum of Squares}
+
+The Mean Sum of Squares (MS) can be calculated using:
+
+\[
+\text{MS}_{\text{GreenTea}} = \frac{\text{SS}_{\text{GreenTea}}}{\text{DF}_{\text{GreenTea}}} = \frac{64.42}{2} = 32.21
+\]
+
+\[
+\text{MS}_{\text{Residuals}} = \frac{\text{SS}_{\text{Residuals}}}{\text{DF}_{\text{Residuals}}} = \frac{5809.64}{534} \approx 10.87
+\]
+
+\subsection{F Statistic}
+
+The F statistic is calculated as follows:
+
+\[
+F = \frac{\text{MS}_{\text{GreenTea}}}{\text{MS}_{\text{Residuals}}} = \frac{32.21}{10.87} \approx 2.96
+\]
+
+Using the F-distribution, the \( p \)-value is compared to assess evidence of a difference. 
+
+\section{One-Way ANOVA: Wind Speed and Transpiration}
+
+A student examined the effect of wind speed on transpiration in plants. The ANOVA results are:
+
+\[
+\text{DF}_{\text{WindSpeed}} = 2
+\]
+\[
+\text{SS}_{\text{WindSpeed}} = 53.43
+\]
+\[
+\text{SS}_{\text{Residuals}} = 12.50
+\]
+\[
+\text{MS}_{\text{WindSpeed}} = \frac{53.43}{2} = 26.715
+\]
+\[
+\text{MS}_{\text{Residuals}} = \frac{12.50}{12} = 1.042
+\]
+\[
+F = \frac{\text{MS}_{\text{WindSpeed}}}{\text{MS}_{\text{Residuals}}} = \frac{26.715}{1.042} \approx 25.65
+\]
+
+The \( p \)-value is \( 4.64 \times 10^{-5} \), indicating strong evidence of differences in mean water loss between wind speeds.
+
+\section{Oxytocin and Emotions}
+
+The study investigated changes in oxytocin levels based on different emotional stimuli. The ANOVA results are:
+
+\[
+\text{DF}_{\text{Group}} = 2
+\]
+\[
+\text{SS}_{\text{Group}} = 1.6655
+\]
+\[
+\text{SS}_{\text{Residuals}} = 0.4173
+\]
+\[
+\text{MS}_{\text{Group}} = \frac{1.6655}{2} = 0.8327
+\]
+\[
+\text{MS}_{\text{Residuals}} = \frac{0.4173}{21} = 0.0199
+\]
+\[
+F = \frac{\text{MS}_{\text{Group}}}{\text{MS}_{\text{Residuals}}} = \frac{0.8327}{0.0199} \approx 41.91
+\]
+
+The \( p \)-value is \( 4.67 \times 10^{-8} \), showing very strong evidence of differences in oxytocin levels between stimuli.
+
+\section{Juicing Oranges}
+
+To test for a difference in mean juice amount between microwaved and non-microwaved oranges using ANOVA:
+
+\[
+\text{p-value} = \text{calculate using R}
+\]
+
+Based on the p-value, conclude whether there is evidence of a difference in mean juice amount.
+
+\section{Rate of Dissolution}
+
+The assumptions for one-way ANOVA are:
+
+\begin{enumerate}
+    \item Groups are independent
+    \item The residuals have a Normal distribution
+    \item The variability of the residuals does not depend on the group
+\end{enumerate}
+
+When assumptions are not met, transformations (e.g., reciprocal) can be used to stabilize variability.
+
+\section{Post-Hoc Tests: Pairwise Comparisons}
+
+After finding evidence of differences in ANOVA, use post-hoc tests to determine specific differences:
+
+\subsection{Bonferroni Correction}
+
+\[
+\text{Adjusted } \alpha = \frac{0.05}{\text{Number of Comparisons}}
+\]
+
+\subsection{Tukey's HSD}
+
+Apply Tukey's Honestly Significant Difference (HSD) test to find which group differences are significant. 
+
+\section{Paper Plane Wingspans}
+
+To determine whether the mean distance flown by paper planes differs between wingspan groups:
+
+\[
+\text{Perform one-way ANOVA using R}
+\]
+
+Calculate the 95\% confidence interval for comparing specific wingspans using Tukey's HSD.
+
+\end{document}

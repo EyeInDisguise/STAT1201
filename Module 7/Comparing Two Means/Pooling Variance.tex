@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section*{Pooling Variance: Pooled T-Test}
+
+If we assume that the two populations we are comparing have the same standard deviations, i.e., \(\sigma_1^2 = \sigma_2^2\), we can pool the squared deviations and the degrees of freedom from the two samples. This gives us the pooled variance:
+
+\[
+s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}
+\]
+
+where \(s_1^2\) and \(s_2^2\) are the sample variances, and \(n_1\) and \(n_2\) are the sample sizes. The pooled standard deviation is then:
+
+\[
+s_p = \sqrt{s_p^2}
+\]
+
+Alternatively, using the definition of the sample standard deviation, we have:
+
+\[
+s_i^2 = \frac{1}{n_i - 1} \sum_{j=1}^{n_i} (x_{ij} - \bar{x}_i)^2
+\]
+
+which can be rearranged to give:
+
+\[
+\sum_{j=1}^{n_i} (x_{ij} - \bar{x}_i)^2 = (n_i - 1) s_i^2
+\]
+
+So the pooled variance formula can be expressed as:
+
+\[
+s_p^2 = \frac{\frac{(n_1 - 1)s_1^2}{n_1 - 1} + \frac{(n_2 - 1)s_2^2}{n_2 - 1}}{n_1 + n_2 - 2}
+\]
+
+This shows \(s_p^2\) is a weighted average of the two sample variances.
+
+The degrees of freedom used are \(n_1 + n_2 - 2\), which is generally higher than the conservative \( \text{df} \) and at least as high as the Welch approximation. A t-distribution with higher degrees of freedom is less variable, so confidence intervals will be narrower, and hypothesis tests will be more significant. The challenge lies in deciding whether the population standard deviations are equal or not, which is another hypothesis test question. Graphical comparisons of sample distributions are usually more reliable for this purpose.
+
+The pooled t-test will use the pooled standard deviation rather than the pooled variance. In the next section, we will extend the pooling concept to more than two samples, focusing on variance.
+
+\section*{Example: Height and Sex}
+
+Consider a study of heights by sex from the Islanders survey. The summary statistics are:
+
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+\text{Sex} & n & \bar{x} & s \\
+\hline
+\text{Male} & 34 & 177.06 & 6.367 \\
+\text{Female} & 26 & 167.42 & 5.900 \\
+\hline
+\end{array}
+\]
+
+To calculate the pooled variance:
+
+\[
+s_p^2 = \frac{(34 - 1) \cdot 6.367^2 + (26 - 1) \cdot 5.900^2}{34 + 26 - 2} = \frac{33 \cdot 40.542 + 25 \cdot 34.81}{58} = 38.983
+\]
+
+Thus, the pooled standard deviation is:
+
+\[
+s_p = \sqrt{38.983} \approx 6.24 \text{ cm}
+\]
+
+The t-statistic for testing the difference in heights is:
+
+\[
+t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} = \frac{177.06 - 167.42}{6.24 \sqrt{\frac{1}{34} + \frac{1}{26}}} \approx 9.84
+\]
+
+This provides strong evidence of a difference in height, with a 95\% confidence interval for the difference in height:
+
+\[
+\bar{x}_1 - \bar{x}_2 \pm t_{0.975, 58} \cdot s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}} = 9.64 \pm 2.002 \cdot 6.24 \sqrt{\frac{1}{34} + \frac{1}{26}} \approx [6.42, 12.86]
+\]
+
+We are 95\% confident that the mean height for males is between 6.42 cm and 12.86 cm higher than for females.
+
+\section*{Pooled T-Test Example}
+
+Consider Ingrid Ibsen's study on reaction times. For females, the sample statistics are \( \bar{x}_1 = 250 \) ms, \( s_1 = 50 \) ms, and for males, \( \bar{x}_2 = 240 \) ms, \( s_2 = 45 \) ms. The sample sizes are \( n_1 = 30 \) and \( n_2 = 30 \).
+
+Using the pooled t-test, calculate the pooled variance and standard deviation:
+
+\[
+s_p^2 = \frac{(30 - 1) \cdot 50^2 + (30 - 1) \cdot 45^2}{30 + 30 - 2} = \frac{29 \cdot 2500 + 29 \cdot 2025}{58} = 2262.07
+\]
+
+\[
+s_p = \sqrt{2262.07} \approx 47.55 \text{ ms}
+\]
+
+The t-statistic is:
+
+\[
+t = \frac{250 - 240}{47.55 \sqrt{\frac{1}{30} + \frac{1}{30}}} \approx 1.65
+\]
+
+This gives moderate evidence of a difference in reaction times between males and females.
+
+\section*{Choosing Sample Sizes}
+
+To determine optimal sample sizes \( n_1 \) and \( n_2 \) for a desired margin of error \( E \), use the general formula for the margin of error in comparing two groups:
+
+\[
+E = t_{\alpha/2, \text{df}} \cdot s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}
+\]
+
+Assuming equal population standard deviations, we want to minimize \( E \) by choosing appropriate \( n_1 \) and \( n_2 \). The formula for \( E \) depends on \( n_1 \) and \( n_2 \), so trial and error or optimization techniques are used to find the best values.
+
+In Alice's experiment on caffeine effects with 20 subjects, choosing equal sample sizes (10 each) is optimal. The margin of error formula indicates that equal sample sizes will give the smallest value for \( E \), providing the best precision for estimating the difference in means.
+
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{Comparing Two Means}
+
+\subsection{Assumptions of the Welch Two-Sample T-Test}
+
+The assumptions of the Welch two-sample t-test are:
+\begin{itemize}
+    \item \textbf{Independent groups:} The two groups being compared must be independent of each other.
+    \item \textbf{Normal variability:} The data in each group should be approximately normally distributed.
+    \item \textbf{Unequal variances:} The variances in the two groups do not need to be equal (this is what differentiates the Welch test from the pooled t-test).
+\end{itemize}
+
+\subsection{Pooled T-Test}
+
+Suppose we are comparing two treatments with \( n_1 = 24 \) subjects in the first group and \( n_2 = 18 \) subjects in the second group. If the sample standard deviations seem similar, we can use a pooled t-test. 
+
+The degrees of freedom (\( \text{df} \)) for the pooled t-test can be calculated using the formula:
+\[
+\text{df} = n_1 + n_2 - 2
+\]
+where \( n_1 \) and \( n_2 \) are the sample sizes of the two groups.
+
+Substituting the values:
+\[
+\text{df} = 24 + 18 - 2 = 40
+\]
+
+Thus, the degrees of freedom for the pooled t-statistic are 40.
+
+\end{document}

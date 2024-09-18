@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{Confidence Interval for a Difference Between Means}
+
+\subsection{General Formula}
+
+To calculate a confidence interval for the difference between two population means, we use the formula:
+
+\[
+(\bar{x}_1 - \bar{x}_2) \pm t_{(1-\alpha/2, \text{df})} \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]
+
+where:
+\begin{itemize}
+    \item \( \bar{x}_1 \) and \( \bar{x}_2 \) are the sample means,
+    \item \( s_1^2 \) and \( s_2^2 \) are the sample variances,
+    \item \( n_1 \) and \( n_2 \) are the sample sizes,
+    \item \( t_{(1-\alpha/2, \text{df})} \) is the critical value from the t-distribution with degrees of freedom (df).
+\end{itemize}
+
+\subsection{Example: Bean Seedlings}
+
+A study on dwarf bean seedlings compares the growth under two lighting conditions: natural light and fluorescent light. Summary statistics are given as follows:
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+\text{Lighting} & \text{Mean} (\bar{x}) & \text{Standard Deviation} (s) \\
+\hline
+\text{High} & 79.9 & 7.039 \\
+\text{Normal} & 41.0 & 6.024 \\
+\hline
+\end{array}
+\]
+
+For a 90% confidence interval, the critical value is \( t_{0.95, 14} = 1.761 \) (from \texttt{qt(.95, df=14)} in R). The interval is calculated as:
+
+\[
+(\bar{x}_1 - \bar{x}_2) \pm t_{0.95, 14} \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]
+
+Substitute the values to find the confidence interval:
+
+\[
+79.9 - 41.0 \pm 1.761 \times \sqrt{\frac{7.039^2}{15} + \frac{6.024^2}{15}} = [34.7, 43.1] \text{ mm}
+\]
+
+We are 90% confident that the continuous fluorescent lighting results in between 34.7 mm and 43.1 mm extra growth on average.
+
+\subsection{Dye Uptake}
+
+For the dye uptake study, we have two groups:
+\begin{itemize}
+    \item Uncoated leaves: Mean = \( \bar{x}_1 \), Standard deviation = \( s_1 \), Sample size = \( n_1 \),
+    \item Coated leaves: Mean = \( \bar{x}_2 \), Standard deviation = \( s_2 \), Sample size = \( n_2 \).
+\end{itemize}
+
+The standard error of the difference between the means is:
+
+\[
+SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]
+
+Calculate the 95% confidence interval for the difference:
+
+\[
+(\bar{x}_1 - \bar{x}_2) \pm t_{0.975, \text{df}} \times SE
+\]
+
+\subsection{Example: Alcohol and Caffeine}
+
+For the reaction time study:
+\begin{itemize}
+    \item Caffeine group: Mean increase = \( \bar{x}_1 \), Standard deviation = \( s_1 \), Sample size = \( n_1 \),
+    \item Caffeine-free group: Mean increase = \( \bar{x}_2 \), Standard deviation = \( s_2 \), Sample size = \( n_2 \).
+\end{itemize}
+
+The standard error is calculated as:
+
+\[
+SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]
+
+For the 95% confidence interval:
+
+\[
+(\bar{x}_1 - \bar{x}_2) \pm t_{0.975, \text{df}} \times SE
+\]
+
+The confidence interval helps determine if caffeine offsets the effect of alcohol. If the interval contains 0, it suggests no significant difference; otherwise, it indicates a significant effect.
+
+\end{document}

@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{Two-Sample T-Test}
+
+\subsection{Testing Hypothesis}
+
+To test the hypothesis \( H_0: \mu_1 - \mu_2 = 0 \), where \( \mu_1 \) and \( \mu_2 \) are the population means of the two groups, we use the two-sample t-test. The test statistic is calculated as:
+
+\[
+t = \frac{(\bar{x}_1 - \bar{x}_2) - 0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+\]
+
+where:
+\begin{itemize}
+    \item \( \bar{x}_1 \) and \( \bar{x}_2 \) are the sample means,
+    \item \( s_1^2 \) and \( s_2^2 \) are the sample variances,
+    \item \( n_1 \) and \( n_2 \) are the sample sizes.
+\end{itemize}
+
+The denominator represents the standard error of the difference between the two sample means.
+
+\subsection{Modafinil and Sleep}
+
+Müller et al. (2013) conducted a study to compare the effect of 200 mg of modafinil versus a placebo on creative thinking. Let \( \mu_1 \) and \( \mu_2 \) be the mean creativity scores for modafinil and placebo, respectively. We test the hypothesis \( H_0: \mu_1 = \mu_2 \) against \( H_A: \mu_1 \ne \mu_2 \).
+
+Given:
+\begin{itemize}
+    \item Mean creativity score for modafinil: \( \bar{x}_1 = 5.1 \), Standard deviation: \( s_1 \),
+    \item Mean creativity score for placebo: \( \bar{x}_2 = 6.5 \), Standard deviation: \( s_2 \).
+\end{itemize}
+
+The test statistic is:
+
+\[
+t = \frac{5.1 - 6.5}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+\]
+
+Using the R function \texttt{pt(-1.55, df=31)}, we find the two-sided P-value to be larger than 0.05, indicating inconclusive evidence of an effect of modafinil on creativity.
+
+\subsection{Organic Vineyards}
+
+William Favreau conducted a study to compare plant biodiversity between 11 conventional vineyards and 9 organic vineyards. We want to test if organic vineyards have higher plant biodiversity.
+
+Let \( \mu_1 \) and \( \mu_2 \) be the mean total species at organic and conventional vineyards, respectively. The hypotheses are:
+
+\[
+\begin{aligned}
+    H_0: & \ \mu_1 \leq \mu_2 \\
+    H_A: & \ \mu_1 > \mu_2
+\end{aligned}
+\]
+
+\subsection{Standard Error Calculation}
+
+For organic vineyards:
+\begin{itemize}
+    \item Mean number of species: \( \bar{x}_1 = 31.1 \),
+    \item Standard deviation: \( s_1 = 5.21 \),
+    \item Sample size: \( n_1 = 9 \).
+\end{itemize}
+
+For conventional vineyards:
+\begin{itemize}
+    \item Mean number of species: \( \bar{x}_2 = 26.6 \),
+    \item Standard deviation: \( s_2 = 1.96 \),
+    \item Sample size: \( n_2 = 11 \).
+\end{itemize}
+
+The standard error of the difference between the two sample means is:
+
+\[
+SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]
+
+Substituting the values:
+
+\[
+SE = \sqrt{\frac{5.21^2}{9} + \frac{1.96^2}{11}} \approx 1.834
+\]
+
+\subsection{P-Value Calculation}
+
+The test statistic is:
+
+\[
+t = \frac{\bar{x}_1 - \bar{x}_2}{SE}
+\]
+
+Using the R function \texttt{pt(t, df)}, where \( df \) is calculated based on the sample sizes and variances, we can determine the P-value and the evidence for the hypothesis.
+
+\end{document}
